@@ -1,0 +1,73 @@
+# ===========================
+# KS Digital — .gitignore
+# Vite + Vanilla JS Project
+# ===========================
+
+# --- Dependencies ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- Build Output ---
+dist/
+build/
+.vite/
+
+# --- Environment & Secrets ---
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+.env.*.local
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- OS Files ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# --- Editor & IDE ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
+# --- Cache ---
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# --- Package Manager Locks (keep only one) ---
+# Uncomment the one you DON'T use:
+# yarn.lock
+# pnpm-lock.yaml
+# package-lock.json   ← keep this if you use npm
+
+# --- Misc ---
+*.tgz
+*.zip
+*.tar.gz
+coverage/
+.nyc_output/
