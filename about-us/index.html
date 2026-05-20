@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | KS Digital | Data-Driven Growth Team</title>
+  <meta name="description" content="Meet the experts at KS Digital. We are a specialized team of performance marketers, SEO strategists, and web developers driven by data.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .team-avatar-css {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(0, 194, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .team-avatar-css::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-blue);
+      opacity: 0.5;
+      box-shadow: var(--glow-blue);
+    }
+    .team-card:nth-child(even) .team-avatar-css::after {
+      border-color: var(--accent-violet);
+      box-shadow: var(--glow-violet);
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
+
+  <!-- Particle Background Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us/" class="active">About Us</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li class="mobile-cta-li"><a href="/contact-us/" class="btn btn-primary">Get Started</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="/contact-us/" class="btn btn-outline-glow">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-subtitle">Who We Are</div>
+      <h1>About Us</h1>
+      <p>Data-driven strategists, creative designers, and growth engineers collaborating to scale your business.</p>
+    </div>
+  </section>
+
+  <!-- About Intro -->
+  <section class="fade-in-section">
+    <div class="container split-layout">
+      <div class="about-intro-content">
+        <div class="section-subtitle">Helping Millions Grow</div>
+        <h2 class="section-title">Scale Faster With Smarter Digital Marketing</h2>
+        <p class="section-desc">We help brands grow faster through data-driven digital marketing and scalable growth strategies. By aligning your business goals with performance marketing channels, SEO, and optimized web design, we drive transparent results you can measure in revenue.</p>
+        <a href="/contact-us/" class="btn btn-primary">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="about-tags" style="margin-top: 36px;">
+          <span class="tag">Digital Marketing</span>
+          <span class="tag">Social Media</span>
+          <span class="tag">Website</span>
+        </div>
+      </div>
+      <div class="about-intro-visual">
+        <div class="image-glow-wrapper">
+          <img src="/images/team_handshake.png" alt="Collaborative Business Partnerships" width="550" height="350">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="fade-in-section section-alt">
+    <div class="container split-layout">
+      <div class="quote-overlay-card">
+        <div class="image-glow-wrapper">
+          <img src="/images/senior_man.png" alt="Ketan Sawant Founder" width="550" height="380">
+        </div>
+        <div class="quote-badge">
+          <blockquote>"We build digital bridges between brands and millions of customers worldwide through data integrity and continuous testing."</blockquote>
+          <cite>— Ketan Sawant, Founder</cite>
+        </div>
+      </div>
+      <div class="mission-content">
+        <div class="section-subtitle">Our Purpose</div>
+        <h2 class="section-title">Innovative Digital Marketing Solutions to Boost Your Online Presence</h2>
+        <p class="section-desc">Our mission is to empower businesses with innovative, data-driven digital marketing strategies that drive measurable growth. We aim to help brands stand out online through smart technology, creativity, and performance-focused marketing. We partner closely with founders to drive top-line and bottom-line revenue KPIs.</p>
+        <div style="font-weight: 600; color: white; display: flex; align-items: center; gap: 12px;">
+          <span style="height: 1px; width: 40px; background: var(--accent-blue); display: inline-block;"></span> Founder, Ketan Sawant
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="fade-in-section">
+    <div class="container">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="section-subtitle">Our Foundation</div>
+        <h2 class="section-title">Our Values that Drive Digital Marketing</h2>
+        <p class="section-desc">These core principles guide how we manage campaigns, interact with clients, and push boundaries every day.</p>
+      </div>
+
+      <div class="values-grid">
+        <!-- Value 1 -->
+        <div class="glass-card value-card">
+          <div class="service-icon" style="background: rgba(0, 194, 255, 0.1); border-color: rgba(0, 194, 255, 0.2); color: var(--accent-blue);">
+            <i class="fa-solid fa-arrows-spin"></i>
+          </div>
+          <h3>Growth Synergy</h3>
+          <p>Collaborating closely with clients to create scalable, long-term growth. We operate as an extension of your internal team.</p>
+        </div>
+        <!-- Value 2 -->
+        <div class="glass-card value-card">
+          <div class="service-icon" style="background: rgba(123, 47, 255, 0.1); border-color: rgba(123, 47, 255, 0.2); color: var(--accent-violet);">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3>Results Integrity</h3>
+          <p>Delivering transparent, data-driven results you can trust. No hidden fees, no exaggerated vanity metrics, just real performance.</p>
+        </div>
+        <!-- Value 3 -->
+        <div class="glass-card value-card">
+          <div class="service-icon" style="background: rgba(0, 194, 255, 0.1); border-color: rgba(0, 194, 255, 0.2); color: var(--accent-blue);">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3>Team Agility</h3>
+          <p>A flexible, fast-moving team adapting to market changes, algorithm updates, and platform capabilities in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="fade-in-section section-alt">
+    <div class="container">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="section-subtitle">Our Talent</div>
+        <h2 class="section-title">Meet Our Expertise</h2>
+        <p class="section-desc">A passionate team of digital marketers, strategists, and creatives dedicated to driving real business growth.</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Ketan Sawant -->
+        <div class="glass-card team-card">
+          <div class="team-avatar-css" style="background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-blue) 100%);">KS</div>
+          <div class="team-card-info">
+            <h4>Ketan Sawant</h4>
+            <div class="role">Founder</div>
+            <p>My skill sets are tuned to build and scale products and organizations. Specializing in Performance Marketing, Affiliate Marketing, Team building & handling, and operations management.</p>
+          </div>
+        </div>
+        <!-- Saumil Shah -->
+        <div class="glass-card team-card">
+          <div class="team-avatar-css" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);">SS</div>
+          <div class="team-card-info">
+            <h4>Saumil Shah</h4>
+            <div class="role">Senior SEO Advisor</div>
+            <p>14+ years of industry experience in SEO, SMO, YouTube SEO, Google Web Stories, Google News, and App Store Optimization (ASO) to scale organic traffic.</p>
+          </div>
+        </div>
+        <!-- Praneeth Yamsani -->
+        <div class="glass-card team-card">
+          <div class="team-avatar-css" style="background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-blue) 100%);">PY</div>
+          <div class="team-card-info">
+            <h4>Praneeth Yamsani</h4>
+            <div class="role">Programmatic Ads Expert</div>
+            <p>Expertise in DV360, Google marketing platforms, and DSPs, managing large-scale customer acquisition and customer retention campaigns.</p>
+          </div>
+        </div>
+        <!-- Prajwal Thombare -->
+        <div class="glass-card team-card">
+          <div class="team-avatar-css" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);">PT</div>
+          <div class="team-card-info">
+            <h4>Prajwal Thombare</h4>
+            <div class="role">Sr Web Developer</div>
+            <p>Creative and detail-oriented Website Designer and Developer specializing in building modern, user-friendly, and high-performing websites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Teaser -->
+  <section class="fade-in-section container">
+    <div class="cta-banner" style="background: linear-gradient(135deg, rgba(0, 194, 255, 0.08) 0%, rgba(123, 47, 255, 0.05) 100%); text-align: center; padding: 60px 40px;">
+      <div class="section-subtitle">Cost-Effective Strategy</div>
+      <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Affordable Pricing for Everyone</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; font-size: 1.1rem;">Flexible pricing plans tailored to match your business goals and market size. Transparent pricing with no hidden costs.</p>
+      
+      <div style="display: inline-flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: center; background: rgba(0,0,0,0.2); padding: 16px 32px; border-radius: 12px; border: 1px solid var(--border-glass); margin-bottom: 32px;">
+        <span style="color: var(--text-muted); font-size: 1.1rem;">Growth packages start at</span>
+        <span style="font-size: 2.25rem; font-weight: 700; color: var(--accent-blue); text-shadow: var(--glow-blue);">₹10,000<span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/month</span></span>
+      </div>
+      
+      <div>
+        <a href="/pricing/" class="btn btn-primary">Talk To Sales <i class="fa-solid fa-comment"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section class="fade-in-section">
+    <div class="container">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="section-subtitle">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Find quick answers to common questions about digital marketing strategies and execution.</p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What is digital marketing?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Digital marketing is the strategic promotion of brands, products, or services using digital channels and technologies. It spans a wide range of platforms including smartphones, laptops, search engines, social media, email, and websites. Powered by modern technologies like high-speed Wi-Fi, AI-powered tools, and automated chatbots, digital marketing allows brands to connect with customers in real-time, deliver highly personalized experiences, and measure campaign performance with precision.</p>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What is the difference between digital marketing and digital advertising?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>While they are closely related, digital marketing is the broad, overarching strategy that focuses on building brand awareness, nurturing customer relationships, and managing long-term growth across multiple channels. Digital advertising is a specific subset of digital marketing. It typically involves paid campaigns—such as Google PPC, programmatic display, or social media ads—designed to achieve immediate actions like driving direct sales, generating leads, or pushing a specific product promotion.</p>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How digital marketing works?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Digital marketing works by leveraging the internet as a medium to deliver content, advertisements, and messages to a highly targeted audience. By integrating analytics and AI platforms, businesses can observe search patterns, interest signals, and user behaviors. Using this data, campaigns are delivered to the right person at the optimal time. Through real-time optimization, marketing budgets are continuously adjusted to focus on top-performing keywords, ad creatives, and channels to maximize conversion rates.</p>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How can digital marketing help my business?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Digital marketing helps your business reach a massive, highly qualified audience at a fraction of the cost of traditional marketing. It enables real-time interaction with prospects and customers, fostering brand trust and loyalty. Furthermore, AI analytics allow you to track every single click, conversion, and dollar spent, providing actionable insights to optimize your campaigns. With this affordable reach and data-driven approach, digital marketing helps businesses scale rapidly, improve customer acquisition, and drive sustainable growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work With Us Section -->
+  <section class="fade-in-section section-alt">
+    <div class="container" style="text-align: center;">
+      <div class="section-subtitle">Careers</div>
+      <h2 class="section-title">Be Part of Our Digital Marketing Team</h2>
+      <p class="section-desc" style="margin-left: auto; margin-right: auto;">We are always looking for passionate digital strategists, SEO specialists, designers, and web developers to build future-proof growth engines.</p>
+      
+      <div class="perks-list">
+        <div class="perk-card">
+          <h4><i class="fa-solid fa-arrow-trend-up"></i> Growth-Oriented Culture</h4>
+          <p>We actively invest in your learning, certification, and training across Google Marketing Platforms and modern tools.</p>
+        </div>
+        <div class="perk-card">
+          <h4><i class="fa-solid fa-chart-simple"></i> Real Impact Work</h4>
+          <p>Own the outcomes and manage top-tier client campaigns directly, witnessing real-world business transformations.</p>
+        </div>
+        <div class="perk-card">
+          <h4><i class="fa-solid fa-users-gear"></i> Collaborative Teamwork</h4>
+          <p>Co-operate with veteran SEO advisors, developers, and founders to brainstorm solutions and scale projects.</p>
+        </div>
+      </div>
+
+      <div class="tags-container" style="justify-content: center;">
+        <span class="tag">Performance Marketing</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Social Media Marketing</span>
+        <span class="tag">Website Design</span>
+        <span class="tag">Marketing Automation</span>
+      </div>
+
+      <a href="/contact-us/" class="btn btn-primary" style="margin-top: 16px;">Join Us Now <i class="fa-solid fa-briefcase"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+        </a>
+        <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
+        <div class="social-links">
+          <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/ketan-sawant-7b5941194/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="/services/">Performance Marketing</a></li>
+          <li><a href="/services/">SEO Optimization</a></li>
+          <li><a href="/services/">Graphic Design</a></li>
+          <li><a href="/services/">Website Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/contact-us/">Contact Info</a></li>
+          <li><a href="/services/">Our Service</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 KS Digital. All rights reserved.</p>
+      <p>Designed for Digital Marketing Growth.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js" defer></script>
+</body>
+</html>
