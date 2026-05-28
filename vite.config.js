@@ -10,6 +10,7 @@ export default defineConfig({
         services: resolve(__dirname, 'services/index.html'),
         pricing: resolve(__dirname, 'pricing/index.html'),
         contact: resolve(__dirname, 'contact-us/index.html'),
+        blog: resolve(__dirname, 'blog/index.html'),
       },
     },
   },
