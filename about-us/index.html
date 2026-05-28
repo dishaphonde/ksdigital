@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | KS Digital | Data-Driven Growth Team</title>
   <meta name="description" content="Meet the experts at KS Digital. We are a specialized team of performance marketers, SEO strategists, and web developers driven by data.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="About Us | KS Digital | Data-Driven Growth Team">
+  <meta property="og:description" content="Meet the experts at KS Digital. We are a specialized team of performance marketers, SEO strategists, and web developers driven by data.">
+  <meta property="og:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+  <meta property="og:url" content="https://ksdigital-ecru.vercel.app/about-us/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Us | KS Digital | Data-Driven Growth Team">
+  <meta name="twitter:description" content="Meet the experts at KS Digital. We are a specialized team of performance marketers, SEO strategists, and web developers driven by data.">
+  <meta name="twitter:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -52,11 +64,21 @@
   <!-- Particle Background Canvas -->
   <canvas id="particle-canvas"></canvas>
 
-  <!-- Navbar -->
   <header>
     <div class="container navbar">
       <a href="/" class="logo">
-        <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-about" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00C2FF" />
+              <stop offset="100%" stop-color="#7B2FFF" />
+            </linearGradient>
+          </defs>
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-about)" stroke-width="4" />
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-about)" stroke-width="2" opacity="0.5" />
+          <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-about)" />
+        </svg>
+        KS <span>Digital</span>
       </a>
       <button class="menu-toggle" aria-label="Toggle Menu">
         <span></span>
@@ -68,8 +90,9 @@
         <li><a href="/about-us/" class="active">About Us</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact-us/">Contact Us</a></li>
-        <li class="mobile-cta-li"><a href="/contact-us/" class="btn btn-primary">Get Started</a></li>
+        <li class="mobile-cta-li"><a href="/contact-us/?ref=mobile-nav" class="btn btn-primary">Get Started</a></li>
       </ul>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -189,15 +212,6 @@
             <h4>Ketan Sawant</h4>
             <div class="role">Founder</div>
             <p>My skill sets are tuned to build and scale products and organizations. Specializing in Performance Marketing, Affiliate Marketing, Team building & handling, and operations management.</p>
-          </div>
-        </div>
-        <!-- Saumil Shah -->
-        <div class="glass-card team-card">
-          <div class="team-avatar-css" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);">SS</div>
-          <div class="team-card-info">
-            <h4>Saumil Shah</h4>
-            <div class="role">Senior SEO Advisor</div>
-            <p>14+ years of industry experience in SEO, SMO, YouTube SEO, Google Web Stories, Google News, and App Store Optimization (ASO) to scale organic traffic.</p>
           </div>
         </div>
         <!-- Praneeth Yamsani -->
@@ -333,14 +347,25 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad-foot-about" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2FF" />
+                <stop offset="100%" stop-color="#7B2FFF" />
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-foot-about)" stroke-width="4" />
+            <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-foot-about)" stroke-width="2" opacity="0.5" />
+            <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-foot-about)" />
+          </svg>
+          KS <span>Digital</span>
         </a>
         <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
         <div class="social-links">
-          <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/in/ketan-sawant-7b5941194/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+          <a href="https://instagram.com/ksdigital.ai" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="https://www.linkedin.com/company/ksdigital-performance/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
       
@@ -361,15 +386,27 @@
           <li><a href="/contact-us/">Contact Info</a></li>
           <li><a href="/services/">Our Service</a></li>
           <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/blog/">Blog Insights</a></li>
         </ul>
       </div>
     </div>
     
     <div class="container footer-bottom">
-      <p>&copy; 2026 KS Digital. All rights reserved.</p>
+      <p>&copy; <span id="copyright-year">2026</span> KS Digital. All rights reserved.</p>
       <p>Designed for Digital Marketing Growth.</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917276503159" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with Ketan Sawant</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script type="module" src="/js/main.js" defer></script>
 </body>

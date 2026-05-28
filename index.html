@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KS Digital | Boost Your Online Presence | Digital Marketing Agency</title>
   <meta name="description" content="KS Digital is a premier digital marketing agency helping brands grow through data-driven performance marketing, SEO, social media, and web design.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="KS Digital | Boost Your Online Presence | Digital Marketing Agency">
+  <meta property="og:description" content="KS Digital is a premier digital marketing agency helping brands grow through data-driven performance marketing, SEO, social media, and web design.">
+  <meta property="og:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+  <meta property="og:url" content="https://ksdigital-ecru.vercel.app/">
+  <meta property="og:type" content="website">
+  <!-- Twitter meta tags removed -->
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -22,7 +31,18 @@
   <header>
     <div class="container navbar">
       <a href="/" class="logo">
-        <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00C2FF" />
+              <stop offset="100%" stop-color="#7B2FFF" />
+            </linearGradient>
+          </defs>
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad)" stroke-width="4" />
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad)" stroke-width="2" opacity="0.5" />
+          <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad)" />
+        </svg>
+        KS <span>Digital</span>
       </a>
       <button class="menu-toggle" aria-label="Toggle Menu">
         <span></span>
@@ -34,8 +54,9 @@
         <li><a href="/about-us/">About Us</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact-us/">Contact Us</a></li>
-        <li class="mobile-cta-li"><a href="/contact-us/" class="btn btn-primary">Get Started</a></li>
+        <li class="mobile-cta-li"><a href="/contact-us/?ref=mobile-nav" class="btn btn-primary">Get Started</a></li>
       </ul>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -54,8 +75,8 @@
         <h1>Boost Your Online Presence with Digital Marketing Services</h1>
         <p>Smart Strategies. Scalable Results.</p>
         <div class="hero-actions">
-          <a href="/contact-us/" class="btn btn-primary">Get Started <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="/services/" class="btn btn-secondary">Learn More</a>
+          <a href="/contact-us/?ref=hero-get-started" class="btn btn-primary">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/services/" class="btn btn-secondary">Explore Services</a>
         </div>
         <div class="stat-badge-group">
           <div class="stat-badge">
@@ -188,10 +209,28 @@
         </div>
       </div>
       <div class="counter-value-container">
-        <div class="section-subtitle">Real-time Performance</div>
-        <div class="counter-number" data-target="500000">0+</div>
-        <div class="counter-label">Monthly Visits Handled</div>
-        <p class="counter-sub">Through modern search engine optimization, paid programmatic channels, and automated funnels, we drive millions of monthly impressions and hundreds of thousands of qualified site visitors to client properties.</p>
+        <div class="section-subtitle">Real-time Performance & Credibility</div>
+        <h2 class="section-title">Transparent Results You Can Trust</h2>
+        <p class="counter-sub" style="margin-bottom: 24px;">We believe in reporting tangible growth, not vanity parameters. We operate under absolute transparency, optimizing metrics that impact your top and bottom-line revenue KPIs.</p>
+        
+        <div class="credibility-grid">
+          <div class="credibility-card">
+            <div class="stat-val counter-number" data-target="150" data-suffix="+">0+</div>
+            <div class="stat-desc">Campaigns Delivered</div>
+          </div>
+          <div class="credibility-card">
+            <div class="stat-val" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-family: var(--font-family); font-size: 2.25rem;">4.9/5</div>
+            <div class="stat-desc">Average Client Rating</div>
+          </div>
+          <div class="credibility-card">
+            <div class="stat-val counter-number" data-target="98" data-suffix="%">0%</div>
+            <div class="stat-desc">Client Retention Rate</div>
+          </div>
+          <div class="credibility-card">
+            <div class="stat-val counter-number" data-target="10" data-prefix="₹" data-suffix="Cr+">₹0Cr+</div>
+            <div class="stat-desc">Client Revenue Generated</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -245,13 +284,85 @@
   <!-- Client Logos Marquee -->
   <div class="marquee-container">
     <div class="marquee-content">
-      <div class="marquee-item"><i class="fa-solid fa-crown"></i> AuraMedia</div>
-      <div class="marquee-item"><i class="fa-solid fa-compass"></i> ApexGrow</div>
-      <div class="marquee-item"><i class="fa-solid fa-gem"></i> OptimaScale</div>
-      <div class="marquee-item"><i class="fa-solid fa-wind"></i> VortexLabs</div>
-      <div class="marquee-item"><i class="fa-solid fa-rocket"></i> NovaSEO</div>
+      <div class="marquee-item">
+        <svg class="marquee-client-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 22h20V10h-2V6l-3 2-2-4-3 4-3-4-2 4-3-2v4H4v12H2z" />
+        </svg>
+        <span>AuraMedia</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="marquee-client-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+        </svg>
+        <span>ApexGrow</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="marquee-client-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.18 2.06L4.09 5.25L2 12.18l6.18 8.12h8l6.18-8.12l-2.09-6.93zM12 18.25l-4-5.25h8z" />
+        </svg>
+        <span>OptimaScale</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="marquee-client-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.14 2.3a1.99 1.99 0 0 0-2.28.39l-4.5 4.5a2 2 0 0 0-.58 1.41v6.8c0 .53.21 1.04.58 1.41l4.5 4.5c.37.37.88.58 1.41.58h6.8c.53 0 1.04-.21 1.41-.58l4.5-4.5c.37-.37.58-.88.58-1.41V8.6c0-.53-.21-1.04-.58-1.41l-4.5-4.5a1.99 1.99 0 0 0-1.41-.58h-5.93zm-.86 11.2h5.44v1.5H9.28v-1.5z" />
+        </svg>
+        <span>VortexLabs</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="marquee-client-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+        </svg>
+        <span>NovaSEO</span>
+      </div>
     </div>
   </div>
+
+  <!-- Featured Blog Posts Section -->
+  <section class="fade-in-section section-alt">
+    <div class="container">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="section-subtitle">Our Insights</div>
+        <h2 class="section-title">Latest Marketing Strategies</h2>
+        <p class="section-desc">Stay informed with the latest trends, programmatic guides, and optimization strategies curated by our team.</p>
+      </div>
+      
+      <div class="blog-grid">
+        <!-- Blog Post 1 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">Paid Advertising</span>
+            <img src="/images/stats_photo.png" alt="Paid Ad Budgets Strategy">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Praneeth Yamsani</span>
+            <span><i class="fa-solid fa-calendar"></i> May 25, 2026</span>
+          </div>
+          <h3>Paid Ad Budgets: Scaling Lead Flow in 2026</h3>
+          <p>Learn how to manage and scale paid media allocations across programmatic networks and search engines without collapsing ROI metrics.</p>
+          <a href="/blog/" class="blog-link">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Blog Post 2 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">SEO</span>
+            <img src="/images/team_handshake.png" alt="High-Performance SEO">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Prajwal Thombare</span>
+            <span><i class="fa-solid fa-calendar"></i> May 22, 2026</span>
+          </div>
+          <h3>High-Performance SEO: Winning Organic Search Volume</h3>
+          <p>Discover technical optimization methods, search engine algorithms, and schema structures that yield sustainable customer acquisition.</p>
+          <a href="/blog/" class="blog-link">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="/blog/" class="btn btn-secondary">Explore All Insights <i class="fa-solid fa-book-open"></i></a>
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ Section -->
   <section class="fade-in-section">
@@ -315,8 +426,8 @@
           <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Grow Better With KS Digital Today</h2>
           <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem;">Partner with us to create data-driven performance campaigns, scale your traffic, and optimize acquisition costs.</p>
           <div class="hero-actions" style="margin-bottom: 0;">
-            <a href="/about-us/" class="btn btn-secondary">Learn More</a>
-            <a href="/contact-us/" class="btn btn-primary">Contact Sales</a>
+            <a href="/services/" class="btn btn-secondary">Explore Services</a>
+            <a href="/contact-us/?package=custom" class="btn btn-primary">Contact Sales</a>
           </div>
         </div>
         
@@ -337,14 +448,25 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad-foot" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2FF" />
+                <stop offset="100%" stop-color="#7B2FFF" />
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-foot)" stroke-width="4" />
+            <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-foot)" stroke-width="2" opacity="0.5" />
+            <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-foot)" />
+          </svg>
+          KS <span>Digital</span>
         </a>
         <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
         <div class="social-links">
-          <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/in/ketan-sawant-7b5941194/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+          <a href="https://instagram.com/ksdigital.ai" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="https://www.linkedin.com/company/ksdigital-performance/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
       
@@ -365,15 +487,27 @@
           <li><a href="/contact-us/">Contact Info</a></li>
           <li><a href="/services/">Our Service</a></li>
           <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/blog/">Blog Insights</a></li>
         </ul>
       </div>
     </div>
     
     <div class="container footer-bottom">
-      <p>&copy; 2026 KS Digital. All rights reserved.</p>
+      <p>&copy; <span id="copyright-year">2026</span> KS Digital. All rights reserved.</p>
       <p>Designed for Digital Marketing Growth.</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917276503159" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with Ketan Sawant</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script type="module" src="/js/main.js" defer></script>
 </body>

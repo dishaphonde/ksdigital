@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services | Digital Marketing Solutions | KS Digital</title>
   <meta name="description" content="Explore our performance marketing, SEO, social media marketing, and web design solutions. Discover our results-driven process to scale your brand.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Our Services | Digital Marketing Solutions | KS Digital">
+  <meta property="og:description" content="Explore our performance marketing, SEO, social media marketing, and web design solutions. Discover our results-driven process to scale your brand.">
+  <meta property="og:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+  <meta property="og:url" content="https://ksdigital-ecru.vercel.app/services/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Services | Digital Marketing Solutions | KS Digital">
+  <meta name="twitter:description" content="Explore our performance marketing, SEO, social media marketing, and web design solutions. Discover our results-driven process to scale your brand.">
+  <meta name="twitter:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -22,7 +34,18 @@
   <header>
     <div class="container navbar">
       <a href="/" class="logo">
-        <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-services" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00C2FF" />
+              <stop offset="100%" stop-color="#7B2FFF" />
+            </linearGradient>
+          </defs>
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-services)" stroke-width="4" />
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-services)" stroke-width="2" opacity="0.5" />
+          <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-services)" />
+        </svg>
+        KS <span>Digital</span>
       </a>
       <button class="menu-toggle" aria-label="Toggle Menu">
         <span></span>
@@ -34,8 +57,9 @@
         <li><a href="/about-us/">About Us</a></li>
         <li><a href="/services/" class="active">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact-us/">Contact Us</a></li>
-        <li class="mobile-cta-li"><a href="/contact-us/" class="btn btn-primary">Get Started</a></li>
+        <li class="mobile-cta-li"><a href="/contact-us/?ref=mobile-nav" class="btn btn-primary">Get Started</a></li>
       </ul>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -130,20 +154,20 @@
         <!-- Step 1 -->
         <div class="process-step">
           <div class="process-number">1</div>
-          <h4>Consultation</h4>
-          <p>Understanding your business goals, target audience, competitive metrics, and unique growth opportunities.</p>
+          <h4>Discovery Call</h4>
+          <p>Aligning on your business growth milestones, conducting initial SEO checks, and mapping programmatic capabilities.</p>
         </div>
         <!-- Step 2 -->
         <div class="process-step">
           <div class="process-number">2</div>
-          <h4>Implementation</h4>
-          <p>Executing data-driven strategies with absolute precision, launching high-ROI creatives, and writing clean technical codes.</p>
+          <h4>Strategy & Setup</h4>
+          <p>Deploying advanced tracking systems, creating high-impact brand creatives, and formulating data-driven target arrays.</p>
         </div>
         <!-- Step 3 -->
         <div class="process-step">
           <div class="process-number">3</div>
-          <h4>Monitoring</h4>
-          <p>Tracking live performance inputs, conducting A/B split tests, optimizing allocations, and scaling successful setups.</p>
+          <h4>Scale & Grow</h4>
+          <p>Launching omnichannel digital campaigns, reviewing performance funnels, performing A/B testing, and expanding budget ROI.</p>
         </div>
       </div>
 
@@ -168,51 +192,102 @@
           <div class="pricing-header">
             <h3 class="pricing-name">Basic Plan</h3>
             <div class="pricing-price">₹10,000<span>/month</span></div>
-            <p class="pricing-desc">Essential digital marketing solutions to build a strong online foundation.</p>
+            <p class="pricing-desc">Essential digital marketing solutions to build a strong online presence.</p>
           </div>
           <ul class="pricing-features">
-            <li><i class="fa-solid fa-circle-check"></i> Social Media Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> SEO Optimization</li>
-            <li><i class="fa-solid fa-circle-check"></i> Pay-Per-Click Advertising</li>
-            <li><i class="fa-solid fa-circle-check"></i> Content Marketing</li>
-            <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+            <li><i class="fa-solid fa-circle-check"></i> Local SEO & Audits</li>
+            <li><i class="fa-solid fa-circle-check"></i> 3 Social Media Channels</li>
+            <li><i class="fa-solid fa-circle-check"></i> Weekly Content Posts</li>
+            <li><i class="fa-solid fa-circle-check"></i> Basic Monthly Report</li>
+            <li><i class="fa-solid fa-circle-check"></i> Standard Email Support</li>
           </ul>
-          <a href="/contact-us/" class="btn btn-secondary">Talk To Sales</a>
+          <a href="/contact-us/?plan=Basic" class="btn btn-secondary">Talk To Sales</a>
         </div>
-        
-        <!-- Pro Card -->
+
+        <!-- Professional Card (Most Popular) -->
         <div class="glass-card pricing-card popular">
           <span class="popular-badge">Most Popular</span>
           <div class="pricing-header">
-            <h3 class="pricing-name">Pro Plan</h3>
+            <h3 class="pricing-name">Professional Plan</h3>
             <div class="pricing-price">₹15,000<span>/month</span></div>
             <p class="pricing-desc">Advanced strategies and optimization for growing and scaling businesses.</p>
           </div>
           <ul class="pricing-features">
-            <li><i class="fa-solid fa-circle-check"></i> Social Media Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> SEO Optimization</li>
-            <li><i class="fa-solid fa-circle-check"></i> Pay-Per-Click Advertising</li>
-            <li><i class="fa-solid fa-circle-check"></i> Content Marketing</li>
+            <li><i class="fa-solid fa-circle-check"></i> Advanced SEO & Google Web Stories</li>
+            <li><i class="fa-solid fa-circle-check"></i> 5 Social Media Channels</li>
+            <li><i class="fa-solid fa-circle-check"></i> Multi-platform PPC Campaigns</li>
+            <li><i class="fa-solid fa-circle-check"></i> Marketing Automation & CRM</li>
             <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
           </ul>
-          <a href="/contact-us/" class="btn btn-primary">Talk To Sales</a>
+          <a href="/contact-us/?plan=Professional" class="btn btn-primary">Talk To Sales</a>
         </div>
-        
+
         <!-- Exclusive Card -->
         <div class="glass-card pricing-card">
           <div class="pricing-header">
             <h3 class="pricing-name">Exclusive Plan</h3>
             <div class="pricing-price">₹20,000<span>/month</span></div>
+            <p class="pricing-desc">Full-scale campaigns with premium support for ambitious, fast-growing brands.</p>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> All Professional Features</li>
+            <li><i class="fa-solid fa-circle-check"></i> 8 Social Media Channels</li>
+            <li><i class="fa-solid fa-circle-check"></i> Daily Content & Reels</li>
+            <li><i class="fa-solid fa-circle-check"></i> Influencer Outreach</li>
+            <li><i class="fa-solid fa-circle-check"></i> Priority Slack & Phone Support</li>
+          </ul>
+          <a href="/contact-us/?plan=Exclusive" class="btn btn-secondary">Talk To Sales</a>
+        </div>
+
+        <!-- Enterprise Card -->
+        <div class="glass-card pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Enterprise Plan</h3>
+            <div class="pricing-price">Custom<span> Pricing</span></div>
+            <p class="pricing-desc">Bespoke, full-service digital marketing for brands ready to dominate their market.</p>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> Omnichannel Custom Strategy</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Channels & Posts</li>
+            <li><i class="fa-solid fa-circle-check"></i> Custom Marketing Funnels</li>
+            <li><i class="fa-solid fa-circle-check"></i> High-impact Graphic Branding</li>
+            <li><i class="fa-solid fa-circle-check"></i> 24/7 Phone & Slack Support</li>
+          </ul>
+          <a href="/contact-us/?plan=Enterprise" class="btn btn-secondary">Talk To Sales</a>
+        </div>
+      </div>
+        <div class="glass-card pricing-card popular">
+          <span class="popular-badge">Most Popular</span>
+          <div class="pricing-header">
+            <h3 class="pricing-name">Professional Plan</h3>
+            <div class="pricing-price">₹25,000<span>/month</span></div>
+            <p class="pricing-desc">Advanced strategies and optimization for growing and scaling businesses.</p>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-circle-check"></i> Advanced SEO & Google Web Stories</li>
+            <li><i class="fa-solid fa-circle-check"></i> 5 Social Media Channels</li>
+            <li><i class="fa-solid fa-circle-check"></i> Multi-platform PPC Campaigns</li>
+            <li><i class="fa-solid fa-circle-check"></i> Marketing Automation & CRM</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+          </ul>
+          <a href="/contact-us/?package=professional" class="btn btn-primary">Talk To Sales</a>
+        </div>
+        
+        <!-- Enterprise Card -->
+        <div class="glass-card pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Enterprise Plan</h3>
+            <div class="pricing-price">Custom<span> Pricing</span></div>
             <p class="pricing-desc">Customized, full-service digital marketing for brands ready to scale big.</p>
           </div>
           <ul class="pricing-features">
-            <li><i class="fa-solid fa-circle-check"></i> Social Media Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> SEO Optimization</li>
-            <li><i class="fa-solid fa-circle-check"></i> Pay-Per-Click Advertising</li>
-            <li><i class="fa-solid fa-circle-check"></i> Content Marketing</li>
-            <li><i class="fa-solid fa-circle-check"></i> Dedicated Account Manager</li>
+            <li><i class="fa-solid fa-circle-check"></i> Omnichannel Custom Strategy</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Channels & Posts</li>
+            <li><i class="fa-solid fa-circle-check"></i> Custom Marketing Funnels</li>
+            <li><i class="fa-solid fa-circle-check"></i> High-impact Graphic Branding</li>
+            <li><i class="fa-solid fa-circle-check"></i> 24/7 Phone & Slack Support</li>
           </ul>
-          <a href="/contact-us/" class="btn btn-secondary">Talk To Sales</a>
+          <a href="/contact-us/?package=enterprise" class="btn btn-secondary">Talk To Sales</a>
         </div>
       </div>
     </div>
@@ -289,14 +364,25 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad-foot-services" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2FF" />
+                <stop offset="100%" stop-color="#7B2FFF" />
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-foot-services)" stroke-width="4" />
+            <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-foot-services)" stroke-width="2" opacity="0.5" />
+            <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-foot-services)" />
+          </svg>
+          KS <span>Digital</span>
         </a>
         <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
         <div class="social-links">
-          <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/in/ketan-sawant-7b5941194/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+          <a href="https://instagram.com/ksdigital" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="https://www.linkedin.com/company/ksdigital-performance/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
       
@@ -317,15 +403,27 @@
           <li><a href="/contact-us/">Contact Info</a></li>
           <li><a href="/services/">Our Service</a></li>
           <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/blog/">Blog Insights</a></li>
         </ul>
       </div>
     </div>
     
     <div class="container footer-bottom">
-      <p>&copy; 2026 KS Digital. All rights reserved.</p>
+      <p>&copy; <span id="copyright-year">2026</span> KS Digital. All rights reserved.</p>
       <p>Designed for Digital Marketing Growth.</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917276503159" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with Ketan Sawant</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script type="module" src="/js/main.js" defer></script>
 </body>

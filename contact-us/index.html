@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Get in Touch | KS Digital</title>
   <meta name="description" content="Reach out to KS Digital to discuss your business growth goals. Call +91 7276503159 or email sawantketan87@gmail.com to start today.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Contact Us | Get in Touch | KS Digital">
+  <meta property="og:description" content="Reach out to KS Digital to discuss your business growth goals. Call +91 7276503159 or email sawantketan87@gmail.com to start today.">
+  <meta property="og:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+  <meta property="og:url" content="https://ksdigital-ecru.vercel.app/contact-us/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | Get in Touch | KS Digital">
+  <meta name="twitter:description" content="Reach out to KS Digital to discuss your business growth goals. Call +91 7276503159 or email sawantketan87@gmail.com to start today.">
+  <meta name="twitter:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -68,7 +80,18 @@
   <header>
     <div class="container navbar">
       <a href="/" class="logo">
-        <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-contact" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00C2FF" />
+              <stop offset="100%" stop-color="#7B2FFF" />
+            </linearGradient>
+          </defs>
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-contact)" stroke-width="4" />
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-contact)" stroke-width="2" opacity="0.5" />
+          <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-contact)" />
+        </svg>
+        KS <span>Digital</span>
       </a>
       <button class="menu-toggle" aria-label="Toggle Menu">
         <span></span>
@@ -80,6 +103,7 @@
         <li><a href="/about-us/">About Us</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact-us/" class="active">Contact Us</a></li>
       </ul>
       <div class="nav-right">
@@ -260,14 +284,25 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <i class="fa-solid fa-bolt"></i> KS <span>Digital</span>
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad-foot-contact" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2FF" />
+                <stop offset="100%" stop-color="#7B2FFF" />
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-foot-contact)" stroke-width="4" />
+            <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-foot-contact)" stroke-width="2" opacity="0.5" />
+            <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-foot-contact)" />
+          </svg>
+          KS <span>Digital</span>
         </a>
         <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
         <div class="social-links">
-          <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/in/ketan-sawant-7b5941194/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+          <a href="https://instagram.com/ksdigital" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="https://www.linkedin.com/company/ksdigital-performance/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
       
@@ -282,21 +317,38 @@
       </div>
 
       <div class="footer-col">
+        box-shadow: var(--glow-blue);
+        border-color: var(--accent-blue);
+      </div>
+      
+      <div class="footer-col">
         <h5>Company</h5>
         <ul class="footer-links">
           <li><a href="/about-us/">About Us</a></li>
           <li><a href="/contact-us/">Contact Info</a></li>
           <li><a href="/services/">Our Service</a></li>
           <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/blog/">Blog Insights</a></li>
         </ul>
       </div>
     </div>
     
     <div class="container footer-bottom">
-      <p>&copy; 2026 KS Digital. All rights reserved.</p>
+      <p>&copy; <span id="copyright-year">2026</span> KS Digital. All rights reserved.</p>
       <p>Designed for Digital Marketing Growth.</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917276503159" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with Ketan Sawant</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script type="module" src="/js/main.js" defer></script>
 </body>

@@ -1,0 +1,1 @@
+I will update the NodeJS parser script to search for the string "My Analysis & Recommendations" anywhere in `transcript.jsonl` (not just in `USER_EXPLICIT` messages) to ensure we capture the complete instructions.

@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordions();
   initMarquee();
   initContactForms();
+  initBackToTop();
+  initCopyrightYear();
+  initQueryPrefill();
 });
 
 /* ---------------------------------------------------
@@ -266,16 +269,35 @@ function initCounters() {
     updateCount();
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -30px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         countUp(entry.target);
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, observerOptions);
 
   counters.forEach((counter) => observer.observe(counter));
+
+  // Fallback: if IntersectionObserver never fires (e.g. element already visible on load),
+  // trigger any counter whose bounding rect is inside the viewport after a short delay.
+  setTimeout(() => {
+    counters.forEach((counter) => {
+      const rect = counter.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        // Only animate if still showing the initial '0+' value
+        if (counter.innerText === '0+' || counter.innerText === '0') {
+          countUp(counter);
+        }
+      }
+    });
+  }, 300);
 }
 
 /* ---------------------------------------------------
@@ -459,3 +481,98 @@ function initThemeToggle() {
   });
 }
 
+/* ---------------------------------------------------
+   11. Back to Top Button
+--------------------------------------------------- */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  // Show/hide button based on scroll position
+  const toggleVisibility = () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility(); // Run immediately in case page loads already scrolled
+
+  // Smooth scroll to top on click
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ---------------------------------------------------
+   12. Dynamic Copyright Year
+--------------------------------------------------- */
+function initCopyrightYear() {
+  const yearSpans = document.querySelectorAll('.copyright-year');
+  const currentYear = new Date().getFullYear();
+  yearSpans.forEach((span) => {
+    span.textContent = currentYear;
+  });
+}
+
+/* ---------------------------------------------------
+   13. URL Query Parameter Pre-filling (Contact Form)
+   Supported params: plan, service, name, email, phone, message
+   Example: /contact-us/?plan=Professional&service=SEO
+--------------------------------------------------- */
+function initQueryPrefill() {
+  const form = document.querySelector('form');
+  if (!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  // Map URL param keys to form field name attributes
+  const fieldMap = {
+    name:    'name',
+    email:   'email',
+    phone:   'phone',
+    message: 'message',
+    service: 'service',
+  };
+
+  Object.entries(fieldMap).forEach(([param, fieldName]) => {
+    const value = params.get(param);
+    if (!value) return;
+
+    const field = form.querySelector(`[name="${fieldName}"]`);
+    if (field) {
+      if (field.tagName === 'SELECT') {
+        // Try to select the matching option (case-insensitive)
+        const options = Array.from(field.options);
+        const match = options.find(
+          (o) => o.value.toLowerCase() === value.toLowerCase() ||
+                 o.text.toLowerCase() === value.toLowerCase()
+        );
+        if (match) field.value = match.value;
+      } else {
+        field.value = value;
+      }
+    }
+  });
+
+  // Handle 'plan' param: pre-fill message with plan context if message not set
+  const plan = params.get('plan');
+  if (plan) {
+    const messageField = form.querySelector('[name="message"], textarea');
+    if (messageField && !params.get('message')) {
+      messageField.value = `Hi, I'm interested in the ${plan} plan. Please reach out to discuss further.`;
+    }
+
+    // Also highlight the plan in a banner if one exists
+    const planBanner = document.getElementById('selected-plan-banner');
+    if (planBanner) {
+      planBanner.textContent = `You selected: ${plan} Plan`;
+      planBanner.style.display = 'block';
+    }
+  }
+}

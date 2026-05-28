@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Blog & Insights | KS Digital</title>
+  <meta name="description" content="Read professional performance marketing guides, technical SEO insights, UX tactics, and programmatic scale strategies from the KS Digital experts.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Digital Marketing Blog & Insights | KS Digital">
+  <meta property="og:description" content="Read professional performance marketing guides, technical SEO insights, UX tactics, and programmatic scale strategies from the KS Digital experts.">
+  <meta property="og:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+  <meta property="og:url" content="https://ksdigital-ecru.vercel.app/blog/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Marketing Blog & Insights | KS Digital">
+  <meta name="twitter:description" content="Read professional performance marketing guides, technical SEO insights, UX tactics, and programmatic scale strategies from the KS Digital experts.">
+  <meta name="twitter:image" content="https://ksdigital-ecru.vercel.app/images/stats_photo.png">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
+
+  <!-- Particle Background Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-blog" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00C2FF" />
+              <stop offset="100%" stop-color="#7B2FFF" />
+            </linearGradient>
+          </defs>
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-blog)" stroke-width="4" />
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-blog)" stroke-width="2" opacity="0.5" />
+          <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-blog)" />
+        </svg>
+        KS <span>Digital</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li class="mobile-cta-li"><a href="/contact-us/?ref=mobile-nav" class="btn btn-primary">Get Started</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="/contact-us/" class="btn btn-outline-glow">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-subtitle">Insights & Strategies</div>
+      <h1>Our Blog</h1>
+      <p>Actionable performance marketing guides, Technical SEO breakdowns, and acquisition UX rules penned directly by our growth practitioners.</p>
+    </div>
+  </section>
+
+  <!-- Blog List Section -->
+  <section class="fade-in-section">
+    <div class="container">
+      <div class="blog-grid">
+        <!-- Post 1 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">Paid Advertising</span>
+            <img src="/images/stats_photo.png" alt="Paid Ad Budgets Strategy">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Praneeth Yamsani</span>
+            <span><i class="fa-solid fa-calendar"></i> May 25, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 5 min read</span>
+          </div>
+          <h3>Paid Ad Budgets: Scaling Lead Flow in 2026</h3>
+          <p>Successful paid advertising requires managing budgets dynamically across platforms. Praneeth outlines key performance triggers inside Google DV360 and paid social networks to optimize acquisition costs during programmatic scaling phases.</p>
+          <a href="/contact-us/?ref=blog-paid-ads" class="blog-link">Consult on Paid Ads <i class="fa-solid fa-comment"></i></a>
+        </div>
+        
+        <!-- Post 2 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">SEO Optimization</span>
+            <img src="/images/team_handshake.png" alt="High-Performance SEO">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Prajwal Thombare</span>
+            <span><i class="fa-solid fa-calendar"></i> May 22, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 6 min read</span>
+          </div>
+          <h3>High-Performance SEO: Winning Organic Search Volume</h3>
+          <p>Organic search is the highest intent channel. Discover technical schema structures, Core Web Vitals targets, and structural crawl path optimizations designed to secure long-term keywords and outpace competitor domains.</p>
+          <a href="/contact-us/?ref=blog-seo" class="blog-link">Consult on SEO <i class="fa-solid fa-comment"></i></a>
+        </div>
+        
+        <!-- Post 3 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">Affiliate Marketing</span>
+            <img src="/images/senior_man.png" alt="Affiliate Marketing KPI Management">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Ketan Sawant</span>
+            <span><i class="fa-solid fa-calendar"></i> May 18, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 4 min read</span>
+          </div>
+          <h3>Affiliate Campaigns: Operating Growth KPIs</h3>
+          <p>Ketan Sawant outlines how to run and audit affiliate marketing campaigns. Focus on identifying authentic networks, securing bottom-line margins, aligning partner distributions, and handling top-line organic growth funnels.</p>
+          <a href="/contact-us/?ref=blog-affiliate" class="blog-link">Consult on Affiliates <i class="fa-solid fa-comment"></i></a>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="glass-card blog-card">
+          <div class="blog-image">
+            <span class="blog-tag">Conversion Rate optimization</span>
+            <img src="/images/businesswoman.png" alt="UX Rules for Landing Page Conversions">
+          </div>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-user"></i> Prajwal Thombare</span>
+            <span><i class="fa-solid fa-calendar"></i> May 14, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 5 min read</span>
+          </div>
+          <h3>Landing Page UX Rules: Turning Clicks Into Customers</h3>
+          <p>Even perfect advertising fails with bad landing pages. Learn specific guidelines on touch target scaling, speed load milestones, single-column mobile alignments, and cognitive micro-copy patterns that double landing page conversion percentages.</p>
+          <a href="/contact-us/?ref=blog-ux" class="blog-link">Consult on Web Design <i class="fa-solid fa-comment"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="fade-in-section section-alt">
+    <div class="container" style="text-align: center; max-width: 680px;">
+      <div class="section-subtitle">Stay Ahead</div>
+      <h2 class="section-title">Subscribe to our Performance Newsletter</h2>
+      <p class="section-desc" style="margin-left: auto; margin-right: auto; margin-bottom: 32px;">Get weekly performance audits, SEO insights, and marketing automations delivered straight to your inbox.</p>
+      
+      <form id="newsletter-form" style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-glass);">
+        <input type="hidden" name="access_key" value="42c3e925-5e49-464c-9515-9c8c0dcb047b">
+        <input type="hidden" name="subject" value="New Newsletter Subscription from KS Digital Website">
+        <input type="hidden" name="from_name" value="KS Digital Newsletter">
+        
+        <input type="email" name="email" class="form-input" placeholder="Enter your business email" required style="max-width: 320px; margin-bottom: 0;">
+        <button type="submit" class="btn btn-primary">Subscribe <i class="fa-solid fa-paper-plane"></i></button>
+        <div class="form-status" id="form-status" style="width: 100%;"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad-foot-blog" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2FF" />
+                <stop offset="100%" stop-color="#7B2FFF" />
+              </linearGradient>
+            </defs>
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="url(#logo-grad-foot-blog)" stroke-width="4" />
+            <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="url(#logo-grad-foot-blog)" stroke-width="2" opacity="0.5" />
+            <path d="M45,25 L65,42 L52,48 L62,75 L38,53 L50,47 Z" fill="url(#logo-grad-foot-blog)" />
+          </svg>
+          KS <span>Digital</span>
+        </a>
+        <p>Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.</p>
+        <div class="social-links">
+
+          <a href="https://instagram.com/ksdigital.ai" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="https://www.linkedin.com/company/ksdigital-performance/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="/services/">Performance Marketing</a></li>
+          <li><a href="/services/">SEO Optimization</a></li>
+          <li><a href="/services/">Graphic Design</a></li>
+          <li><a href="/services/">Website Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/contact-us/">Contact Info</a></li>
+          <li><a href="/services/">Our Service</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/blog/" class="active">Blog Insights</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; <span id="copyright-year">2026</span> KS Digital. All rights reserved.</p>
+      <p>Designed for Digital Marketing Growth.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917276503159" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">Chat with Ketan Sawant</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script type="module" src="/js/main.js" defer></script>
+</body>
+</html>

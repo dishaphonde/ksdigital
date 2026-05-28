@@ -1,0 +1,1 @@
+I will search for the user request within the `transcript.jsonl` log file using PowerShell's `Select-String` cmdlet to get the complete, untruncated prompt.

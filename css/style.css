@@ -1020,8 +1020,8 @@ footer {
 /* Pricing Section */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -1030,6 +1030,7 @@ footer {
   display: flex;
   flex-direction: column;
   height: 100%;
+  text-align: left !important;
 }
 
 .pricing-card.popular {
@@ -1088,19 +1089,24 @@ footer {
   gap: 14px;
   margin-bottom: 36px;
   flex-grow: 1;
+  padding: 0;
+  margin-left: 0;
 }
 
 .pricing-features li {
   font-size: 0.95rem;
   color: var(--text-muted);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  text-align: left;
 }
 
 .pricing-features i {
   color: var(--accent-blue);
   font-size: 1.1rem;
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .pricing-card .btn {
@@ -1128,12 +1134,15 @@ footer {
   font-size: 0.95rem;
   color: var(--text-muted);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  text-align: left;
 }
 
 .enterprise-features i {
   color: var(--accent-blue);
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 /* How It Works process flow */
@@ -2003,3 +2012,382 @@ body.light-mode .form-status.error {
     display: inline-flex;
   }
 }
+
+/* ===================================================
+   REDESIGN & UPGRADE STYLES (May 2026 Redesign)
+   =================================================== */
+
+/* SVG Brand Logo Animation & Styling */
+.logo-svg {
+  height: 28px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 194, 255, 0.4));
+  transition: var(--transition);
+  vertical-align: middle;
+}
+.logo:hover .logo-svg {
+  transform: rotate(-4deg) scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(123, 47, 255, 0.6));
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition);
+  animation: whatsapp-pulse 2s infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1) translateY(-3px);
+  background-color: #20ba5a;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+.whatsapp-float .tooltip-text {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(10, 10, 15, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  right: 70px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.whatsapp-float:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 36px;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 998;
+  transition: var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: var(--glow-blue);
+  transform: translateY(-3px);
+}
+
+/* Credibility Stats Block Grid (Home Page) */
+.credibility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.credibility-card {
+  text-align: left;
+}
+.credibility-card .stat-val {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-family);
+  display: inline-block;
+}
+.credibility-card .stat-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Custom Vector SVG Client Logos */
+.marquee-client-logo {
+  height: 28px;
+  width: auto;
+  fill: currentColor;
+  color: var(--text-dim);
+  transition: var(--transition);
+  vertical-align: middle;
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.marquee-item:hover .marquee-client-logo {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.4));
+}
+
+/* Blog layouts */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 48px;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.blog-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-glass);
+}
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+.blog-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--accent-blue);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  z-index: 1;
+}
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.blog-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.blog-card h3 {
+  font-size: 1.35rem;
+  color: white;
+  margin-bottom: 12px;
+  transition: var(--transition);
+  line-height: 1.3;
+}
+.blog-card:hover h3 {
+  color: var(--accent-blue);
+}
+.blog-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+.blog-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+.blog-link i {
+  transition: transform 0.3s;
+}
+.blog-card:hover .blog-link {
+  color: var(--accent-blue);
+}
+.blog-card:hover .blog-link i {
+  transform: translateX(4px);
+}
+
+/* Pricing Comparison Table System */
+.comparison-container {
+  margin-top: 80px;
+  overflow-x: auto;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  overflow: hidden;
+  min-width: 750px;
+}
+.comparison-table th, .comparison-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-glass);
+  font-size: 0.95rem;
+}
+.comparison-table th {
+  background: rgba(255, 255, 255, 0.01);
+  font-weight: 600;
+  color: white;
+}
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.comparison-table .feature-col {
+  width: 40%;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.comparison-table .plan-col {
+  width: 20%;
+  text-align: center;
+}
+.comparison-table th.plan-col {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.comparison-table th.plan-col.popular {
+  color: var(--accent-blue);
+  text-shadow: var(--glow-blue);
+}
+.comparison-table td.plan-col i.fa-circle-check {
+  color: var(--accent-blue);
+  font-size: 1.1rem;
+}
+.comparison-table td.plan-col i.fa-circle-xmark {
+  color: var(--text-dim);
+  opacity: 0.4;
+  font-size: 1.1rem;
+}
+
+/* Light mode overrides for redesigned sections */
+body.light-mode .whatsapp-float .tooltip-text {
+  background-color: rgba(255,255,255,0.95);
+  color: #0A0A1A;
+  border-color: #E0E4F0;
+}
+body.light-mode .back-to-top {
+  background: #FFFFFF;
+  border-color: #E0E4F0;
+  color: #0A0A1A;
+}
+body.light-mode .back-to-top:hover {
+  background: #F3F4F6;
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+body.light-mode .credibility-card .stat-val {
+  background: linear-gradient(135deg, #0070e0 0%, #6a1fe0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.light-mode .blog-tag {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 112, 224, 0.2);
+  color: #0070e0;
+}
+body.light-mode .blog-card h3 {
+  color: #0A0A1A;
+}
+body.light-mode .blog-card:hover h3 {
+  color: #0070e0;
+}
+body.light-mode .blog-link {
+  color: #0A0A1A;
+}
+body.light-mode .blog-card:hover .blog-link {
+  color: #0070e0;
+}
+body.light-mode .comparison-table {
+  background: #FFFFFF;
+  border-color: #E0E4F0;
+}
+body.light-mode .comparison-table th {
+  background: #F8F9FF;
+  color: #0A0A1A;
+}
+body.light-mode .comparison-table td {
+  border-bottom-color: #E0E4F0;
+  color: #4A5568;
+}
+body.light-mode .comparison-table .feature-col {
+  color: #0A0A1A;
+}
+body.light-mode .comparison-table th.plan-col {
+  color: #0A0A1A;
+}
+body.light-mode .comparison-table th.plan-col.popular {
+  color: #6a1fe0;
+  text-shadow: none;
+}
+body.light-mode .comparison-table td.plan-col i.fa-circle-check {
+  color: #6a1fe0;
+}
+
