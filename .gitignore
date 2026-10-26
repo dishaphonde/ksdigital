@@ -1,6 +1,6 @@
 # ===========================
 # KS Digital — .gitignore
-# Vite + Vanilla JS Project
+# Next.js 15 + Prisma
 # ===========================
 
 # --- Dependencies ---
@@ -9,17 +9,22 @@ node_modules/
 .pnp.js
 
 # --- Build Output ---
+.next/
+out/
 dist/
 build/
-.vite/
 
 # --- Environment & Secrets ---
 .env
-.env.local
-.env.development
-.env.staging
-.env.production
-.env.*.local
+.env*.local
+!.env.example
+
+# --- Prisma & SQLite ---
+*.db
+*.db-journal
+
+# --- Legacy Backup ---
+_legacy_site/
 
 # --- Logs ---
 logs/
@@ -30,17 +35,10 @@ yarn-error.log*
 pnpm-debug.log*
 
 # --- OS Files ---
-# macOS
 .DS_Store
-.AppleDouble
-.LSOverride
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-
-# Windows
 $RECYCLE.BIN/
-*.lnk
 
 # --- Editor & IDE ---
 .vscode/
@@ -50,24 +48,7 @@ $RECYCLE.BIN/
 *.njsproj
 *.sln
 *.sw?
-*.sublime-project
-*.sublime-workspace
 
 # --- Cache ---
+.turbo/
 .cache/
-.parcel-cache/
-.eslintcache
-.stylelintcache
-
-# --- Package Manager Locks (keep only one) ---
-# Uncomment the one you DON'T use:
-# yarn.lock
-# pnpm-lock.yaml
-# package-lock.json   ← keep this if you use npm
-
-# --- Misc ---
-*.tgz
-*.zip
-*.tar.gz
-coverage/
-.nyc_output/

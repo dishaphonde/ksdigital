@@ -1,231 +1,141 @@
-# KS Digital — Official Website
+# KS Digital — Official Website & Admin CRM
 
-> A modern, fully responsive digital marketing agency website built with **Vite + Vanilla JS**, featuring dark/light mode, animated particle backgrounds, Web3Forms integration, and a premium glassmorphism design system.
+> Modern, full-stack digital marketing agency platform built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Prisma ORM**. Features a high-converting visual redesign, lightweight lead management CRM, dynamic database-backed CMS, and strict SEO/performance optimization.
 
----
-
-## 🌐 Live Pages
-
-| Page | Route |
-|---|---|
-| Home | `/` |
-| About Us | `/about-us/` |
-| Services | `/services/` |
-| Pricing | `/pricing/` |
-| Contact Us | `/contact-us/` |
+- **Live URL:** [https://ksdigital.co.in](https://ksdigital.co.in) (and [https://ksdigital-ecru.vercel.app](https://ksdigital-ecru.vercel.app))
+- **Admin Portal:** `/admin` (disallowed in robots.txt, excluded from sitemap)
 
 ---
 
-## ✨ Features
+## 🌟 Key Architecture & Features
 
-- ⚡ **Vite-powered** build system for fast development and optimized production bundles
-- 🌑 **Dark / Light mode** toggle with smooth transitions and `localStorage` persistence (no flash on reload)
-- 🎨 **Glassmorphism design system** — frosted-glass cards, neon glow effects, gradient text
-- 🌌 **Animated particle/mesh background** rendered on a `<canvas>` element across all pages
-- 📱 **Fully responsive** — Desktop (1024px+), Tablet (768–1023px), Mobile (320–767px)
-- 🍔 **Hamburger menu** with animated X toggle and smooth slide-in navigation on mobile/tablet
-- 📬 **Web3Forms integration** — real email delivery from contact forms, no backend required
-- ✅ **Client-side form validation** — email format check + 10-digit phone number enforcement
-- 🔢 **Animated stat counters** triggered on scroll using IntersectionObserver
-- 🎞️ **Scroll-based fade-in animations** for all sections
-- ♿ **Accessibility** — all interactive elements meet minimum 44px touch targets, semantic HTML, ARIA labels
-- 🔍 **SEO optimised** — unique `<title>` and `<meta description>` on every page
+- **Next.js 15 App Router & Server Actions:** Zero-API-boilerplate server actions for high-performance data mutations and lead capture.
+- **Server-Side Rendered (SSR) & Dynamic Revalidation:** Complete HTML rendered on the server for Google search bots; edits made in the admin panel go live in seconds via `revalidatePath()`.
+- **CRM Lead Pipeline:** Captures leads with spam honeypot, phone/email validation, and UTM parameter tracking. Admin dashboard offers a 6-stage pipeline (`NEW` → `CONTACTED` → `QUALIFIED` → `PROPOSAL_SENT` → `WON` → `LOST`), internal notes timeline, and one-click CSV export.
+- **Team Section (Part B):** Fully database-driven "Meet Our Expertise" section with `Person` JSON-LD schema, role descriptions, bio modal dialogs, and initial avatar fallbacks.
+- **Visual Design System (Part A):** Dark/Light mode support, CSS variable design tokens, Space Grotesk & Inter typography with `font-display: swap`, responsive mobile menu, and floating WhatsApp contact widget.
+- **Ethical Integrity:** Fictitious client logos and unverified statistical claims have been purged; all client metrics require CMS verification (documented in `TODO_CONTENT.md`).
 
 ---
 
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| HTML5 | Page structure & semantic markup |
-| Vanilla CSS | Styling, animations, responsive layout |
-| Vanilla JavaScript (ES Modules) | Interactivity, animations, form logic |
-| [Vite 8](https://vite.dev) | Dev server, hot reload, production build |
-| [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) | Typography (Google Fonts) |
-| [Font Awesome 6](https://fontawesome.com) | Icons |
-| [Web3Forms](https://web3forms.com) | Serverless form-to-email submission |
-
----
-
-## 📁 Project Structure
-
-```
-Ksdigital/
-├── index.html              # Home page
-├── about-us/
-│   └── index.html          # About Us page
-├── services/
-│   └── index.html          # Services page
-├── pricing/
-│   └── index.html          # Pricing page
-├── contact-us/
-│   └── index.html          # Contact Us page
-├── css/
-│   └── style.css           # Global design system + all styles
-├── js/
-│   └── main.js             # All JavaScript (navbar, animations, forms)
-├── public/                 # Static assets served as-is
-├── dist/                   # Production build output (git-ignored)
-├── node_modules/           # Dependencies (git-ignored)
-├── vite.config.js          # Vite multi-page build configuration
-├── package.json            # Project metadata & npm scripts
-├── .gitignore              # Git exclusions
-└── README.md               # This file
-```
-
----
-
-## 🚀 Getting Started
+## 🚀 Local Development Setup
 
 ### Prerequisites
+- Node.js v18.17+ or v20+ (tested on Node v24)
+- npm or pnpm
 
-- [Node.js](https://nodejs.org) v18 or higher
-- npm (comes with Node.js)
-
-### 1. Clone the Repository
-
+### 1. Clone & Install Dependencies
 ```bash
 git clone https://github.com/your-username/ksdigital.git
 cd ksdigital
-```
-
-### 2. Install Dependencies
-
-```bash
 npm install
 ```
 
-### 3. Start Development Server
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+Ensure your `.env` contains:
+```env
+DATABASE_URL="postgresql://username:password@host/ksdigital?sslmode=require"
+NEXTAUTH_SECRET="your-32-char-random-secret"
+ADMIN_EMAIL="sawantketan87@gmail.com"
+ADMIN_PASSWORD="AdminKS2026!Secure"
+ADMIN_NAME="Ketan Sawant"
+NEXT_PUBLIC_SITE_URL="https://ksdigital.co.in"
+```
 
+### 3. Generate Prisma Client & Push Database Schema
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### 4. Seed Initial Content & Super Admin
+Populate the database with all services, team members, default pricing plans, FAQs, and create your first Super Admin user:
+```bash
+npm run db:seed
+```
+
+### 5. Start the Development Server
 ```bash
 npm run dev
 ```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+Open **[http://localhost:3000/admin](http://localhost:3000/admin)** to access the CRM & CMS.
 
-Open your browser at **http://localhost:5173** — Vite hot-reloads on every file save.
+---
 
-### 4. Build for Production
+## 🚢 Deploying to Vercel
 
+1. Push your repository to GitHub.
+2. In the [Vercel Dashboard](https://vercel.com/new), import your `ksdigital` repository.
+3. Under **Environment Variables**, add:
+   - `DATABASE_URL`: Connection string from Neon Postgres or Supabase.
+   - `NEXTAUTH_SECRET`: Random 32+ character string.
+   - `ADMIN_EMAIL`: `sawantketan87@gmail.com`
+   - `ADMIN_PASSWORD`: Your chosen secure master password.
+   - `NEXT_PUBLIC_SITE_URL`: `https://ksdigital.co.in`
+   - `RESEND_API_KEY`: (Optional) Your Resend API key for instant lead email notifications.
+4. Click **Deploy**. Vercel will automatically build the Next.js App Router project and deploy it with edge capabilities.
+
+---
+
+## 🔑 Creating and Managing Admins
+
+The seed script (`prisma/seed.ts`) reads `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_NAME` from your environment to automatically register the initial `SUPER_ADMIN`. Passwords are encrypted using standard `bcrypt` hashing before storage.
+
+To re-seed or create a new admin on a remote database:
 ```bash
-npm run build
+DATABASE_URL="your-remote-connection-string" npm run db:seed
 ```
 
-Output is generated in the `dist/` folder, ready to deploy.
+---
 
-### 5. Preview Production Build Locally
+## 💾 Backing Up the Database
+
+### PostgreSQL (Neon / Supabase)
+To take a complete snapshot of all CRM leads, team bios, pricing tiers, and site settings:
 
 ```bash
-npm run preview
+# Using pg_dump
+pg_dump "postgresql://user:pass@host/db?sslmode=require" -F c -b -v -f "ksdigital-backup-$(date +%F).dump"
 ```
 
----
+### Restoring from Backup
+```bash
+pg_restore -d "postgresql://user:pass@host/db?sslmode=require" -v "ksdigital-backup-YYYY-MM-DD.dump"
+```
 
-## 📬 Web3Forms Setup (Contact Form)
-
-All contact forms submit to your email inbox via [Web3Forms](https://web3forms.com) — **no backend or database required**.
-
-### Steps to activate:
-
-1. Go to [https://web3forms.com](https://web3forms.com)
-2. Enter your email address → receive your free **Access Key**
-3. Open `contact-us/index.html` and `pricing/index.html`
-4. Find this line in each file:
-   ```html
-   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-   ```
-5. Replace `YOUR_ACCESS_KEY_HERE` with your actual key
-6. Save and deploy — submissions will arrive in your inbox instantly
-
-### Form Validation Rules
-
-| Field | Rule |
-|---|---|
-| First Name, Last Name | Required |
-| Email | Required + valid format (`user@domain.com`) |
-| Phone | Required + exactly 10 digits |
-| Message | Required |
+Additionally, leads can be exported on-demand directly from the browser at `/api/leads/export` (or via the **Export Leads CSV** button inside the Admin portal).
 
 ---
 
-## 🎨 Design System
+## 📁 Repository Structure
 
-### Color Palette (Dark Mode)
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg-dark` | `#0A0A0F` | Page background |
-| `--accent-blue` | `#00C2FF` | Primary accent, icons, borders |
-| `--accent-violet` | `#7B2FFF` | Buttons, highlights, gradients |
-| `--text-primary` | `#F3F4F6` | Headings, body text |
-| `--text-muted` | `#9CA3AF` | Secondary text, descriptions |
-
-### Color Palette (Light Mode)
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg-dark` | `#F8F9FF` | Page background |
-| `--accent-blue` | `#0070E0` | Primary accent |
-| `--accent-violet` | `#6A1FE0` | Buttons, highlights |
-| `--text-primary` | `#0A0A1A` | Headings, body text |
-
-### Responsive Breakpoints
-
-| Breakpoint | Range | Layout |
-|---|---|---|
-| Desktop | 1024px+ | Full multi-column layouts, horizontal navbar |
-| Tablet | 768px – 1023px | 2-column grids, hamburger menu |
-| Mobile | 320px – 767px | Single column, full-width elements, stacked CTAs |
-
----
-
-## 🧩 JavaScript Modules (`js/main.js`)
-
-| Function | Description |
-|---|---|
-| `initParticles()` | Animated canvas particle background |
-| `initNavbarScroll()` | Frosted-glass effect on scroll |
-| `initMobileMenu()` | Hamburger toggle with X animation |
-| `initActiveLinks()` | Highlights current page nav link |
-| `initScrollAnimations()` | Fade-in sections on scroll (IntersectionObserver) |
-| `initCounters()` | Animated number counters on scroll |
-| `initAccordions()` | FAQ expand/collapse accordion |
-| `initThemeToggle()` | Dark/light mode switcher with localStorage |
-| `initContactForms()` | Web3Forms submission + validation + feedback banners |
-
----
-
-## 📦 npm Scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Start local dev server at `localhost:5173` |
-| `npm run build` | Build optimised production files to `dist/` |
-| `npm run preview` | Preview the production build locally |
-
----
-
-## 🙈 Git Ignored Files
-
-The `.gitignore` excludes:
-
-- `node_modules/` — reinstall with `npm install`
-- `dist/` — regenerate with `npm run build`
-- `.env*` — environment variables and secrets
-- `.DS_Store`, `Thumbs.db` — OS system files
-- `.vscode/`, `.idea/` — editor preferences
-- `*.log` — runtime log files
-
----
-
-## 📄 License
-
-This project is proprietary and owned by **KS Digital**.  
-All rights reserved © 2025 KS Digital.
-
----
-
-## 📞 Contact
-
-**KS Digital — Performance Marketing Agency**  
-📧 Email: [ksdigitalmarketing@gmail.com](mailto:ksdigitalmarketing@gmail.com)  
-📞 Phone: +91 7276503159  
-🌐 Website: [www.ksdigital.in](https://www.ksdigital.in)
+```
+ksdigital/
+├── prisma/
+│   ├── schema.prisma        # Complete database model (Users, Leads, Team, Services, Pricing)
+│   └── seed.ts              # Seed script for initial team, services, and Super Admin
+├── public/
+│   ├── images/              # Optimized brand visuals
+│   └── team/                # Optional headshot image directory
+├── src/
+│   ├── app/
+│   │   ├── (public)/        # SSR routes: /, /about-us, /services, /pricing, /blog, /contact-us
+│   │   │   ├── [service]/   # Dedicated SEO landing pages (/seo-services, /performance-marketing, etc.)
+│   │   │   └── blog/[slug]/ # Dynamic blog posts with BlogPosting JSON-LD
+│   │   ├── admin/           # Secure CRM and CMS dashboard (/admin/leads, /admin/team, etc.)
+│   │   ├── api/             # API routes (CSV export, etc.)
+│   │   ├── actions/         # Next.js Server Actions (lead submission, admin CRUD)
+│   │   ├── sitemap.ts       # Dynamic search engine sitemap
+│   │   └── robots.ts        # Dynamic crawler directives (blocking /admin)
+│   ├── components/          # Reusable UI tokens (Header, Footer, TeamCard, ContactForm, etc.)
+│   └── lib/                 # Prisma singleton, resilient data fallback, JWT auth session
+├── ADMIN_GUIDE.md           # End-user guide for content editing and lead handling
+├── TODO_CONTENT.md          # Verification checklist for client assets and proof metrics
+├── PLAN.md                  # Phase-by-phase architectural roadmap
+└── README.md                # Project documentation
+```

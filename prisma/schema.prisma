@@ -1,0 +1,270 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── AUTH & USERS ───
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  name          String
+  passwordHash  String
+  role          Role       @default(EDITOR)
+  avatar        String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  auditLogs     AuditLog[]
+  assignedLeads Lead[]
+  leadNotes     LeadNote[]
+}
+
+enum Role {
+  SUPER_ADMIN
+  EDITOR
+  SALES
+}
+
+// ─── SITE SETTINGS ───
+model SiteSettings {
+  id                  String   @id @default("default")
+  businessName        String   @default("KS Digital")
+  logo                String?
+  phone               String   @default("+917276503159")
+  whatsappNumber      String   @default("917276503159")
+  email               String   @default("sawantketan87@gmail.com")
+  address             String?
+  workingHours        String?
+  instagramUrl        String?  @default("https://instagram.com/ksdigital.ai")
+  linkedinUrl         String?  @default("https://www.linkedin.com/company/ksdigital-performance/")
+  twitterUrl          String?
+  footerText          String?  @default("Boost Your Online Presence with Digital Marketing Services. Smart Strategies. Scalable Results.")
+  announcementBar     String?
+  announcementEnabled Boolean  @default(false)
+  ga4Id               String?
+  gscId               String?
+  updatedAt           DateTime @updatedAt
+}
+
+// ─── HOME PAGE ───
+model HomePageContent {
+  id             String      @id @default("default")
+  heroHeadline   String      @default("Digital Marketing That Turns Traffic Into Measurable Growth")
+  heroSubtext    String      @default("SEO, performance marketing, social media, and website design for businesses looking to strengthen online visibility and customer acquisition.")
+  heroCta1Text   String      @default("Book a Strategy Call")
+  heroCta1Link   String      @default("/contact-us/")
+  heroCta2Text   String      @default("View Our Services")
+  heroCta2Link   String      @default("/services/")
+  showProofStats Boolean     @default(false)
+  updatedAt      DateTime    @updatedAt
+}
+
+model ProofStat {
+  id       String  @id @default(cuid())
+  label    String
+  value    String
+  numValue Int?
+  enabled  Boolean @default(false)
+  order    Int     @default(0)
+}
+
+// ─── TEAM ───
+model TeamMember {
+  id          String     @id @default(cuid())
+  name        String
+  role        String
+  slug        String     @unique
+  bio         String     @db.Text
+  shortBio    String?
+  photo       String?
+  initials    String
+  linkedinUrl String?
+  email       String?
+  order       Int        @default(0)
+  visible     Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  blogPosts   BlogPost[]
+}
+
+// ─── SERVICES ───
+model Service {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  summary      String   @db.Text
+  content      String   @db.Text
+  icon         String?
+  image        String?
+  features     String[]
+  faqs         Json?
+  seoTitle     String?
+  seoDesc      String?
+  seoCanonical String?
+  ogImage      String?
+  noindex      Boolean  @default(false)
+  order        Int      @default(0)
+  visible      Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ─── PRICING ───
+model PricingPlan {
+  id          String   @id @default(cuid())
+  name        String
+  price       String
+  billingNote String?  @default("/month")
+  description String?
+  bestFor     String?
+  features    String[]
+  highlighted Boolean  @default(false)
+  ctaText     String   @default("Request Plan")
+  ctaLink     String   @default("/contact-us/")
+  order       Int      @default(0)
+  visible     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ─── BLOG ───
+model BlogPost {
+  id          String      @id @default(cuid())
+  title       String
+  slug        String      @unique
+  excerpt     String?
+  content     String      @db.Text
+  coverImage  String?
+  category    String?
+  readTime    String?     @default("5 min read")
+  authorId    String?
+  author      TeamMember? @relation(fields: [authorId], references: [id])
+  status      PostStatus  @default(PUBLISHED)
+  publishedAt DateTime?   @default(now())
+  seoTitle    String?
+  seoDesc     String?
+  ogImage     String?
+  noindex     Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+}
+
+// ─── TESTIMONIALS & CASE STUDIES ───
+model Testimonial {
+  id         String   @id @default(cuid())
+  clientName String
+  company    String?
+  role       String?
+  quote      String   @db.Text
+  photo      String?
+  published  Boolean  @default(false)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model ClientLogo {
+  id         String  @id @default(cuid())
+  name       String
+  logoUrl    String
+  websiteUrl String?
+  published  Boolean @default(false)
+  order      Int     @default(0)
+}
+
+model CaseStudy {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  client    String?
+  summary   String?
+  content   String   @db.Text
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ─── FAQ ───
+model Faq {
+  id       String  @id @default(cuid())
+  question String
+  answer   String  @db.Text
+  page     String  @default("home")
+  order    Int     @default(0)
+  visible  Boolean @default(true)
+}
+
+// ─── PAGE SEO ───
+model PageSeo {
+  id          String   @id @default(cuid())
+  pageSlug    String   @unique
+  title       String?
+  description String?
+  canonical   String?
+  ogImage     String?
+  noindex     Boolean  @default(false)
+  updatedAt   DateTime @updatedAt
+}
+
+// ─── CRM / LEADS ───
+model Lead {
+  id              String     @id @default(cuid())
+  name            String
+  email           String
+  phone           String?
+  company         String?
+  serviceInterest String?
+  budget          String?
+  message         String?    @db.Text
+  sourcePage      String?
+  utmSource       String?
+  utmMedium       String?
+  utmCampaign     String?
+  status          LeadStatus @default(NEW)
+  assignedToId    String?
+  assignedTo      User?      @relation(fields: [assignedToId], references: [id])
+  followUpDate    DateTime?
+  tags            String[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  notes           LeadNote[]
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL_SENT
+  WON
+  LOST
+}
+
+model LeadNote {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+// ─── AUDIT LOG ───
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  details   Json?
+  createdAt DateTime @default(now())
+}
