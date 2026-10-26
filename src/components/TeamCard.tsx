@@ -94,11 +94,11 @@ export default function TeamCard({ member }: { member: TeamMemberData }) {
       {/* Bio Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg bg-[#101018] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+          <div className="relative w-full max-w-lg bg-white dark:bg-[#101018] border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
             <button
               onClick={() => setModalOpen(false)}
               aria-label="Close bio details modal"
-              className="absolute top-4 right-4 p-2 text-muted hover:text-foreground rounded-lg hover:bg-white/5"
+              className="absolute top-4 right-4 p-2 text-muted hover:text-foreground rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
             >
               <X className="w-5 h-5" />
             </button>

@@ -136,7 +136,7 @@ function ContactFormInner({
                 name="name"
                 required
                 placeholder="e.g. Ketan Sawant"
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-gray-300 dark:border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
 
@@ -153,7 +153,7 @@ function ContactFormInner({
                 name="email"
                 required
                 placeholder="you@company.com"
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-gray-300 dark:border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
           </div>
@@ -172,7 +172,7 @@ function ContactFormInner({
                 name="phone"
                 required
                 placeholder="+91 98765 43210"
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-gray-300 dark:border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
 
@@ -188,7 +188,7 @@ function ContactFormInner({
                 id="company"
                 name="company"
                 placeholder="Company name or URL"
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-gray-300 dark:border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
           </div>
@@ -206,7 +206,7 @@ function ContactFormInner({
                 name="serviceInterest"
                 value={selectedService}
                 onChange={(e) => setSelectedService(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-[#14141F] border border-white/10 text-foreground focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#14141F] border border-gray-300 dark:border-white/10 text-foreground focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               >
                 <option value="">Select a service / plan...</option>
                 <option value="Performance Marketing">Performance Marketing</option>
@@ -233,7 +233,7 @@ function ContactFormInner({
                 id="budget"
                 name="budget"
                 defaultValue=""
-                className="w-full px-4 py-3 rounded-xl bg-[#14141F] border border-white/10 text-foreground focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#14141F] border border-gray-300 dark:border-white/10 text-foreground focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               >
                 <option value="">Select monthly budget range...</option>
                 <option value="₹10,000 - ₹25,000">₹10,000 – ₹25,000</option>
@@ -258,7 +258,7 @@ function ContactFormInner({
               required
               rows={4}
               placeholder="Tell us about your current marketing channels, goals, and targets..."
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm resize-y"
+              className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-gray-300 dark:border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm resize-y"
             ></textarea>
           </div>
 

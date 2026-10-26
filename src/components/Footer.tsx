@@ -15,7 +15,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#07070B] border-t border-white/10 text-muted pt-16 pb-12 transition-colors">
+    <footer className="bg-[#0A0A12] border-t border-white/10 text-gray-300 pt-16 pb-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand Col */}
@@ -45,7 +45,7 @@ export default function Footer() {
                 KS <span className="gradient-text">Digital</span>
               </span>
             </Link>
-            <p className="text-sm max-w-sm leading-relaxed text-gray-400">
+            <p className="text-sm max-w-sm leading-relaxed text-gray-300">
               Boost your online presence with digital marketing services. Smart strategies, data integrity, and scalable customer acquisition.
             </p>
             <div className="flex items-center gap-3 pt-2">
@@ -54,7 +54,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow KS Digital on Instagram"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand-blue hover:border-brand-blue transition-colors"
+                className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-gray-300 hover:text-brand-blue hover:border-brand-blue hover:bg-white/10 transition-colors"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -63,21 +63,21 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect with KS Digital on LinkedIn"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand-blue hover:border-brand-blue transition-colors"
+                className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-gray-300 hover:text-brand-blue hover:border-brand-blue hover:bg-white/10 transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="tel:+917276503159"
                 aria-label="Call KS Digital"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand-blue hover:border-brand-blue transition-colors"
+                className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-gray-300 hover:text-brand-blue hover:border-brand-blue hover:bg-white/10 transition-colors"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <a
                 href="mailto:sawantketan87@gmail.com"
                 aria-label="Email KS Digital"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-brand-blue hover:border-brand-blue transition-colors"
+                className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-gray-300 hover:text-brand-blue hover:border-brand-blue hover:bg-white/10 transition-colors"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -89,34 +89,34 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-white text-sm uppercase tracking-wider">
               Core Services
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/performance-marketing" className="hover:text-brand-blue transition-colors">
+                <Link href="/performance-marketing" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Performance Marketing
                 </Link>
               </li>
               <li>
-                <Link href="/seo-services" className="hover:text-brand-blue transition-colors">
+                <Link href="/seo-services" className="text-gray-300 hover:text-brand-blue transition-colors">
                   SEO Optimization
                 </Link>
               </li>
               <li>
-                <Link href="/social-media-marketing" className="hover:text-brand-blue transition-colors">
+                <Link href="/social-media-marketing" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Social Media Marketing
                 </Link>
               </li>
               <li>
-                <Link href="/website-design" className="hover:text-brand-blue transition-colors">
+                <Link href="/website-design" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Website Design
                 </Link>
               </li>
               <li>
-                <Link href="/marketing-automation" className="hover:text-brand-blue transition-colors">
+                <Link href="/marketing-automation" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Marketing Automation
                 </Link>
               </li>
               <li>
-                <Link href="/graphic-design" className="hover:text-brand-blue transition-colors">
+                <Link href="/graphic-design" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Graphic Design
                 </Link>
               </li>
@@ -128,29 +128,29 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-white text-sm uppercase tracking-wider">
               Company
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/about-us" className="hover:text-brand-blue transition-colors">
+                <Link href="/about-us" className="text-gray-300 hover:text-brand-blue transition-colors">
                   About Us & Team
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-blue transition-colors">
+                <Link href="/services" className="text-gray-300 hover:text-brand-blue transition-colors">
                   All Services
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-brand-blue transition-colors">
+                <Link href="/pricing" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Packages & Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-brand-blue transition-colors">
+                <Link href="/blog" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Insights & Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className="hover:text-brand-blue transition-colors">
+                <Link href="/contact-us" className="text-gray-300 hover:text-brand-blue transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -163,13 +163,13 @@ export default function Footer() {
               Direct Contact
             </h4>
             <div className="space-y-2 text-sm">
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 Direct Line:{" "}
                 <a href="tel:+917276503159" className="text-white hover:text-brand-blue font-medium block">
                   +91 7276503159
                 </a>
               </p>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 Email:{" "}
                 <a href="mailto:sawantketan87@gmail.com" className="text-white hover:text-brand-blue font-medium block">
                   sawantketan87@gmail.com
@@ -178,7 +178,7 @@ export default function Footer() {
               <div className="pt-2">
                 <Link
                   href="/admin"
-                  className="inline-flex items-center gap-1 text-xs text-muted hover:text-brand-blue transition-colors opacity-70 hover:opacity-100"
+                  className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-brand-blue transition-colors"
                 >
                   Admin Portal <ArrowUpRight className="w-3 h-3" />
                 </Link>
@@ -188,7 +188,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>© {currentYear} KS Digital. All rights reserved.</p>
           <p>Engineered for high-performance organic and paid business growth.</p>
         </div>

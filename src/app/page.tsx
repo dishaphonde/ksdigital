@@ -534,7 +534,7 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4">
+              <div className="lg:col-span-5 bg-white/70 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-2xl p-6 space-y-4 backdrop-blur-sm">
                 <div>
                   <h4 className="font-heading text-lg font-bold text-foreground">
                     Ketan Sawant
@@ -543,7 +543,7 @@ export default async function HomePage() {
                     Founder, KS Digital
                   </p>
                 </div>
-                <blockquote className="text-xs sm:text-sm text-gray-300 italic leading-relaxed">
+                <blockquote className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
                   &ldquo;My skill sets are tuned to build and scale products and organizations. With deep expertise in Performance Marketing, Affiliate Marketing, Team building & handling, and operations management, I focus on handling top-line and bottom-line revenue KPIs.&rdquo;
                 </blockquote>
                 <div className="pt-2">
