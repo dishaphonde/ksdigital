@@ -32,6 +32,33 @@
   --glow-violet: 0 4px 20px rgba(106, 31, 224, 0.12);
 }
 
+/* Force dark theme & high contrast on admin panel regardless of global theme */
+.admin-theme,
+html.light .admin-theme,
+body.light .admin-theme {
+  --background: #09090E;
+  --foreground: #FFFFFF;
+  --card: #12121A;
+  --card-foreground: #FFFFFF;
+  --card-hover: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.14);
+  --muted: #CBD5E1;
+  --muted-foreground: #94A3B8;
+  --accent-blue: #00C2FF;
+  --accent-violet: #7B2FFF;
+  color: #FFFFFF !important;
+}
+
+.admin-theme input,
+.admin-theme textarea,
+.admin-theme select {
+  color: #FFFFFF !important;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
 * {
   box-sizing: border-box;
 }

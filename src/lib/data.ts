@@ -14,6 +14,13 @@ export const fallbackSiteSettings = {
   announcementEnabled: false,
 };
 
+const teamPhotosBySlug: Record<string, string> = {
+  "ketan-sawant": "/images/team/ketan-sawant.jpg",
+  "saumil-shah": "/images/team/saumil-shah.jpg",
+  "praneeth-yamsani": "/images/team/praneeth-yamsani.jpg",
+  "prajwal-thombare": "/images/team/prajwal-thombare.jpg",
+};
+
 export const fallbackTeamMembers = [
   {
     id: "team-1",
@@ -23,7 +30,7 @@ export const fallbackTeamMembers = [
     bio: "As a Digital Marketer my skill sets are tuned to build and scale products and organizations, have delivered growth which is needed in startup organization. Adept understanding business end to end user flows while working on strategic & critical bets, handled both topline and bottom-line KPIs for organization. My experience covers Performance Marketing, Affiliate marketing, Team building & handling and operations.",
     shortBio: "Founder & growth strategist with deep expertise in performance marketing, affiliate channels, and startup scaling.",
     initials: "KS",
-    photo: null,
+    photo: teamPhotosBySlug["ketan-sawant"],
     linkedinUrl: "https://www.linkedin.com/in/ketan-sawant-7b5941194/",
     email: "sawantketan87@gmail.com",
     order: 1,
@@ -37,7 +44,7 @@ export const fallbackTeamMembers = [
     bio: "Successfully implemented Performance Marketing and Earned Media Channels. With more than 14+ years of experience in SEO, SMO, YouTube SEO, Google Stories, Google News & ASO. Responsible for the overall direction, coordination, development and evaluation of SEO, SMO and App promotions.",
     shortBio: "14+ years of expertise guiding SEO, Google Stories, Google News, and earned media growth.",
     initials: "SS",
-    photo: null,
+    photo: teamPhotosBySlug["saumil-shah"],
     linkedinUrl: "https://www.linkedin.com/in/saumil-shah/",
     email: null,
     order: 2,
@@ -51,7 +58,7 @@ export const fallbackTeamMembers = [
     bio: "Results-driven Programmatic Advertising and Performance Marketing Specialist with expertise in DV360, Google marketing platforms. Experienced in managing large-scale acquisition and retention campaigns across Google, Meta, affiliates, display, video, and YouTube with high monthly spends. Strong skills in audience segmentation, KPI, conversion optimization, and performance reporting using data-driven insights.",
     shortBio: "Specialist in DV360, Google Marketing Platform, DSPs, and high-volume acquisition campaigns.",
     initials: "PY",
-    photo: null,
+    photo: teamPhotosBySlug["praneeth-yamsani"],
     linkedinUrl: null,
     email: null,
     order: 3,
@@ -65,7 +72,7 @@ export const fallbackTeamMembers = [
     bio: "Creative and detail-oriented Website Designer with a passion for building modern, user-friendly, and high-performing websites. I specialize in designing visually appealing layouts that not only look great but also deliver strong user experiences and business results. Focused on creating clean, responsive, and user-experience-driven websites that help brands grow online.",
     shortBio: "Builds high-performance, conversion-oriented websites engineered for user experience and SEO.",
     initials: "PT",
-    photo: null,
+    photo: teamPhotosBySlug["prajwal-thombare"],
     linkedinUrl: null,
     email: null,
     order: 4,
@@ -436,7 +443,10 @@ export async function getTeamMembers() {
       where: { visible: true },
       orderBy: { order: "asc" },
     });
-    return team.length > 0 ? team : fallbackTeamMembers;
+    return (team.length > 0 ? team : fallbackTeamMembers).map((member) => ({
+      ...member,
+      photo: member.photo ?? teamPhotosBySlug[member.slug] ?? null,
+    }));
   } catch {
     return fallbackTeamMembers;
   }

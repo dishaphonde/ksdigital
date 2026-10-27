@@ -33,18 +33,18 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-[#08080C] text-foreground">
-      <div className="w-full max-w-md glass-card p-8 sm:p-10 border-white/10 shadow-2xl relative overflow-hidden">
+    <div className="admin-theme min-h-screen flex items-center justify-center p-4 bg-[#08080C] text-slate-100">
+      <div className="w-full max-w-md glass-card p-8 sm:p-10 border-white/10 shadow-2xl relative overflow-hidden bg-[#12121A]">
         <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="text-center mb-8 space-y-2">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-violet to-brand-blue text-white flex items-center justify-center mx-auto shadow-glowSm mb-4">
             <Lock className="w-6 h-6" />
           </div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight text-foreground">
+          <h1 className="font-heading text-2xl font-bold tracking-tight text-white">
             KS Digital Admin
           </h1>
-          <p className="text-xs text-muted">
+          <p className="text-xs text-slate-300">
             Sign in to manage CRM leads and update website content
           </p>
         </div>
@@ -58,35 +58,35 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-muted mb-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
               Admin Email
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="sawantketan87@gmail.com"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.06] border border-white/15 text-white placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-muted mb-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
               Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-foreground placeholder-muted/50 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
+                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.06] border border-white/15 text-white placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               />
             </div>
           </div>

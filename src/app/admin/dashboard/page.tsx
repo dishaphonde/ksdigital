@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Inbox, Users, Briefcase, TrendingUp, ArrowRight, Clock } from "lucide-react";
+import { Inbox, Users, Briefcase, TrendingUp, ArrowRight, Clock, AlertCircle } from "lucide-react";
 import { prisma } from "@/lib/db";
 import { verifySession } from "@/lib/auth";
 
@@ -13,6 +13,7 @@ export default async function AdminDashboardPage() {
   let recentLeads: any[] = [];
   let teamCount = 0;
   let servicesCount = 0;
+  let databaseError = false;
 
   try {
     [leadsCount, newLeadsCount, recentLeads, teamCount, servicesCount] = await Promise.all([
@@ -24,6 +25,7 @@ export default async function AdminDashboardPage() {
     ]);
   } catch (err) {
     console.error("Dashboard stats query error:", err);
+    databaseError = true;
   }
 
   return (
@@ -37,6 +39,21 @@ export default async function AdminDashboardPage() {
         </p>
       </div>
 
+      {databaseError && (
+        <div
+          role="alert"
+          className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-sm text-rose-300"
+        >
+          <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" />
+          <div>
+            <p className="font-semibold">Could not load admin data from the database.</p>
+            <p className="mt-1 text-xs text-rose-200/80">
+              Check that DATABASE_URL has the correct PostgreSQL connection details and that the database is available. After updating the server environment, restart the app and reload this page.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="glass-card p-6 border-brand-blue/30">
@@ -48,7 +65,7 @@ export default async function AdminDashboardPage() {
               <Inbox className="w-4 h-4" />
             </div>
           </div>
-          <p className="font-heading text-3xl font-extrabold text-foreground">{leadsCount}</p>
+          <p className="font-heading text-3xl font-extrabold text-foreground">{databaseError ? "—" : leadsCount}</p>
           <span className="text-xs text-brand-blue mt-1 block">Saved in CRM database</span>
         </div>
 
@@ -61,7 +78,7 @@ export default async function AdminDashboardPage() {
               <Clock className="w-4 h-4" />
             </div>
           </div>
-          <p className="font-heading text-3xl font-extrabold text-foreground">{newLeadsCount}</p>
+          <p className="font-heading text-3xl font-extrabold text-foreground">{databaseError ? "—" : newLeadsCount}</p>
           <span className="text-xs text-emerald-400 mt-1 block">Awaiting initial follow-up</span>
         </div>
 
@@ -74,7 +91,7 @@ export default async function AdminDashboardPage() {
               <Users className="w-4 h-4" />
             </div>
           </div>
-          <p className="font-heading text-3xl font-extrabold text-foreground">{teamCount || 5}</p>
+          <p className="font-heading text-3xl font-extrabold text-foreground">{databaseError ? "—" : teamCount}</p>
           <span className="text-xs text-muted mt-1 block">Listed on About Us</span>
         </div>
 
@@ -87,7 +104,7 @@ export default async function AdminDashboardPage() {
               <Briefcase className="w-4 h-4" />
             </div>
           </div>
-          <p className="font-heading text-3xl font-extrabold text-foreground">{servicesCount || 7}</p>
+          <p className="font-heading text-3xl font-extrabold text-foreground">{databaseError ? "—" : servicesCount}</p>
           <span className="text-xs text-muted mt-1 block">Dedicated landing pages</span>
         </div>
       </div>
@@ -106,7 +123,11 @@ export default async function AdminDashboardPage() {
           </Link>
         </div>
 
-        {recentLeads.length === 0 ? (
+        {databaseError ? (
+          <div className="text-center py-12 border border-dashed border-white/10 rounded-xl text-muted text-sm">
+            Recent leads are unavailable until the database connection is restored.
+          </div>
+        ) : recentLeads.length === 0 ? (
           <div className="text-center py-12 border border-dashed border-white/10 rounded-xl text-muted text-sm">
             No leads received yet. Test by submitting the contact form on the live site!
           </div>

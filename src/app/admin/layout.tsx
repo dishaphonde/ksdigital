@@ -44,7 +44,7 @@ export default async function AdminLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-[#09090E] text-foreground flex flex-col md:flex-row">
+    <div className="admin-theme min-h-screen bg-[#09090E] text-slate-100 flex flex-col md:flex-row">
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#0D0D14] border-r border-white/10 p-6 flex flex-col justify-between shrink-0">
         <div className="space-y-6">
@@ -53,10 +53,10 @@ export default async function AdminLayout({
               KS
             </div>
             <div>
-              <h2 className="font-heading font-bold text-sm text-foreground">
+              <h2 className="font-heading font-bold text-sm text-white">
                 KS Digital CMS
               </h2>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-blue/10 text-brand-blue uppercase font-bold tracking-wider">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-blue/20 text-cyan-300 border border-brand-blue/30 uppercase font-bold tracking-wider inline-block">
                 {session.role}
               </span>
             </div>
@@ -69,10 +69,10 @@ export default async function AdminLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-muted hover:text-foreground hover:bg-white/5 transition-colors"
+                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-colors group"
                 >
-                  <Icon className="w-4 h-4 text-brand-blue" />
-                  <span>{item.label}</span>
+                  <Icon className="w-4 h-4 text-brand-blue group-hover:text-cyan-300 transition-colors" />
+                  <span className="text-slate-200 group-hover:text-white transition-colors">{item.label}</span>
                 </Link>
               );
             })}
@@ -83,16 +83,16 @@ export default async function AdminLayout({
           <Link
             href="/"
             target="_blank"
-            className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-muted hover:text-foreground hover:bg-white/5 transition-colors"
+            className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
           >
             <span>View Live Site</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
           </Link>
 
           <form action={logoutAction}>
             <button
               type="submit"
-              className="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-rose-400 hover:bg-rose-500/10 transition-colors"
+              className="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors"
             >
               <LogOut className="w-4 h-4" />
               <span>Log Out</span>
