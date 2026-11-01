@@ -113,7 +113,11 @@ export default async function AdminPricingPage() {
                 <textarea
                   name="features"
                   rows={5}
-                  defaultValue={(plan.features || []).join("\n")}
+                  defaultValue={
+                    Array.isArray(plan.features)
+                      ? (plan.features as string[]).join("\n")
+                      : ""
+                  }
                   className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-foreground text-xs focus:outline-none focus:border-brand-blue font-mono resize-y"
                 ></textarea>
               </div>

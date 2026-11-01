@@ -452,13 +452,32 @@ export async function getTeamMembers() {
   }
 }
 
+export function parseFeatures(features: unknown): string[] {
+  if (Array.isArray(features)) return features as string[];
+  if (typeof features === "string") {
+    try {
+      const parsed = JSON.parse(features);
+      if (Array.isArray(parsed)) return parsed as string[];
+    } catch {
+      return features.split("\n").map((f) => f.trim()).filter(Boolean);
+    }
+  }
+  return [];
+}
+
 export async function getServices() {
   try {
     const services = await prisma.service.findMany({
       where: { visible: true },
       orderBy: { order: "asc" },
     });
-    return services.length > 0 ? services : fallbackServices;
+    if (services.length > 0) {
+      return services.map((s) => ({
+        ...s,
+        features: parseFeatures(s.features),
+      }));
+    }
+    return fallbackServices;
   } catch {
     return fallbackServices;
   }
@@ -467,7 +486,12 @@ export async function getServices() {
 export async function getServiceBySlug(slug: string) {
   try {
     const service = await prisma.service.findUnique({ where: { slug } });
-    if (service) return service;
+    if (service) {
+      return {
+        ...service,
+        features: parseFeatures(service.features),
+      };
+    }
   } catch {
     // fallback
   }
@@ -480,7 +504,13 @@ export async function getPricingPlans() {
       where: { visible: true },
       orderBy: { order: "asc" },
     });
-    return plans.length > 0 ? plans : fallbackPricingPlans;
+    if (plans.length > 0) {
+      return plans.map((p) => ({
+        ...p,
+        features: parseFeatures(p.features),
+      }));
+    }
+    return fallbackPricingPlans;
   } catch {
     return fallbackPricingPlans;
   }

@@ -83,7 +83,11 @@ export default async function AdminServicesPage() {
                 <textarea
                   name="features"
                   rows={4}
-                  defaultValue={(service.features || []).join("\n")}
+                  defaultValue={
+                    Array.isArray(service.features)
+                      ? (service.features as string[]).join("\n")
+                      : ""
+                  }
                   className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-foreground text-xs focus:outline-none focus:border-brand-blue font-mono resize-y"
                 ></textarea>
               </div>

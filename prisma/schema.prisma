@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -99,7 +99,7 @@ model Service {
   content      String   @db.Text
   icon         String?
   image        String?
-  features     String[]
+  features     Json?
   faqs         Json?
   seoTitle     String?
   seoDesc      String?
@@ -120,7 +120,7 @@ model PricingPlan {
   billingNote String?  @default("/month")
   description String?
   bestFor     String?
-  features    String[]
+  features    Json?
   highlighted Boolean  @default(false)
   ctaText     String   @default("Request Plan")
   ctaLink     String   @default("/contact-us/")
@@ -232,7 +232,7 @@ model Lead {
   assignedToId    String?
   assignedTo      User?      @relation(fields: [assignedToId], references: [id])
   followUpDate    DateTime?
-  tags            String[]
+  tags            Json?
   createdAt       DateTime   @default(now())
   updatedAt       DateTime   @updatedAt
   notes           LeadNote[]
