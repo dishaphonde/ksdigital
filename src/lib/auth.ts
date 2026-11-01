@@ -3,9 +3,16 @@ import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.NEXTAUTH_SECRET || "dev-secret-key-32-chars-long-minimum-ksdigital"
-);
+function getJwtSecret(): Uint8Array {
+  const secret = process.env.NEXTAUTH_SECRET;
+  if (!secret) {
+    throw new Error("NEXTAUTH_SECRET must be configured before using authentication.");
+  }
+  if (secret.length < 32) {
+    throw new Error("NEXTAUTH_SECRET must be at least 32 characters long.");
+  }
+  return new TextEncoder().encode(secret);
+}
 
 const COOKIE_NAME = "ks_admin_session";
 
@@ -22,7 +29,7 @@ export async function createSessionToken(payload: SessionPayload): Promise<strin
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("7d")
-    .sign(JWT_SECRET);
+    .sign(getJwtSecret());
 }
 
 export async function verifySession(): Promise<SessionPayload | null> {
@@ -31,7 +38,7 @@ export async function verifySession(): Promise<SessionPayload | null> {
     const token = cookieStore.get(COOKIE_NAME)?.value;
     if (!token) return null;
 
-    const { payload } = await jwtVerify(token, JWT_SECRET);
+    const { payload } = await jwtVerify(token, getJwtSecret());
     return payload as unknown as SessionPayload;
   } catch {
     return null;
@@ -82,10 +89,10 @@ export async function loginUser(email: string, password: string) {
   }
 
   // 2. Fallback check for initial admin credentials before database seed
-  const defaultAdminEmail = (process.env.ADMIN_EMAIL || "sawantketan87@gmail.com").toLowerCase();
-  const defaultAdminPass = process.env.ADMIN_PASSWORD || "AdminKS2026!Secure";
+  const defaultAdminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+  const defaultAdminPass = process.env.ADMIN_PASSWORD;
 
-  if (normalizedEmail === defaultAdminEmail && password === defaultAdminPass) {
+  if (defaultAdminEmail && defaultAdminPass && normalizedEmail === defaultAdminEmail && password === defaultAdminPass) {
     const token = await createSessionToken({
       userId: "admin-root",
       email: defaultAdminEmail,

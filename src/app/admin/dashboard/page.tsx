@@ -48,7 +48,7 @@ export default async function AdminDashboardPage() {
           <div>
             <p className="font-semibold">Could not load admin data from the database.</p>
             <p className="mt-1 text-xs text-rose-200/80">
-              Check that DATABASE_URL has the correct PostgreSQL connection details and that the database is available. After updating the server environment, restart the app and reload this page.
+              Check that DATABASE_URL has the correct MySQL connection details and that the database is available. After updating the server environment, restart the app and reload this page.
             </p>
           </div>
         </div>

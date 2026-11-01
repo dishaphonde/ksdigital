@@ -7,8 +7,11 @@ async function main() {
   console.log("🌱 Starting seed...");
 
   // 1. Admin User
-  const adminEmail = process.env.ADMIN_EMAIL || "sawantketan87@gmail.com";
-  const adminPassword = process.env.ADMIN_PASSWORD || "AdminKS2026!Secure";
+  const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminEmail || !adminPassword) {
+    throw new Error("ADMIN_EMAIL and ADMIN_PASSWORD must be configured before seeding.");
+  }
   const passwordHash = await bcrypt.hash(adminPassword, 10);
 
   const admin = await prisma.user.upsert({

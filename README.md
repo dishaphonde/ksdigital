@@ -1,6 +1,6 @@
 # KS Digital — Official Website & Admin CRM
 
-> Modern, full-stack digital marketing agency platform built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Prisma ORM**. Features a high-converting visual redesign, lightweight lead management CRM, dynamic database-backed CMS, and strict SEO/performance optimization.
+> Modern, full-stack digital marketing agency platform built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Prisma ORM**. Features a high-converting visual redesign, lightweight lead management CRM, dynamic database-backed CMS, and strict SEO/performance optimization.
 
 - **Live URL:** [https://ksdigital.co.in](https://ksdigital.co.in) (and [https://ksdigital-ecru.vercel.app](https://ksdigital-ecru.vercel.app))
 - **Admin Portal:** `/admin` (disallowed in robots.txt, excluded from sitemap)
@@ -9,7 +9,7 @@
 
 ## 🌟 Key Architecture & Features
 
-- **Next.js 15 App Router & Server Actions:** Zero-API-boilerplate server actions for high-performance data mutations and lead capture.
+- **Next.js 16 App Router & Server Actions:** Zero-API-boilerplate server actions for high-performance data mutations and lead capture.
 - **Server-Side Rendered (SSR) & Dynamic Revalidation:** Complete HTML rendered on the server for Google search bots; edits made in the admin panel go live in seconds via `revalidatePath()`.
 - **CRM Lead Pipeline:** Captures leads with spam honeypot, phone/email validation, and UTM parameter tracking. Admin dashboard offers a 6-stage pipeline (`NEW` → `CONTACTED` → `QUALIFIED` → `PROPOSAL_SENT` → `WON` → `LOST`), internal notes timeline, and one-click CSV export.
 - **Team Section (Part B):** Fully database-driven "Meet Our Expertise" section with `Person` JSON-LD schema, role descriptions, bio modal dialogs, and initial avatar fallbacks.
@@ -21,7 +21,7 @@
 ## 🚀 Local Development Setup
 
 ### Prerequisites
-- Node.js v18.17+ or v20+ (tested on Node v24)
+- Node.js 20.9 or newer (required by Next.js 16)
 - npm or pnpm
 
 ### 1. Clone & Install Dependencies
@@ -38,13 +38,15 @@ cp .env.example .env
 ```
 Ensure your `.env` contains:
 ```env
-DATABASE_URL="postgresql://username:password@host/ksdigital?sslmode=require"
+DATABASE_URL="mysql://USER:PASSWORD@HOST:3306/DATABASE"
 NEXTAUTH_SECRET="your-32-char-random-secret"
-ADMIN_EMAIL="sawantketan87@gmail.com"
-ADMIN_PASSWORD="AdminKS2026!Secure"
-ADMIN_NAME="Ketan Sawant"
+ADMIN_EMAIL="admin@example.com"
+ADMIN_PASSWORD="replace-with-a-unique-strong-password"
+ADMIN_NAME="Site Administrator"
 NEXT_PUBLIC_SITE_URL="https://ksdigital.co.in"
 ```
+
+Use the MySQL connection URL supplied by your database provider. URL-encode special characters in the username or password. Never commit your real `.env` file or credentials.
 
 ### 3. Generate Prisma Client & Push Database Schema
 ```bash
@@ -69,16 +71,18 @@ Open **[http://localhost:3000/admin](http://localhost:3000/admin)** to access th
 
 ## 🚢 Deploying to Vercel
 
-1. Push your repository to GitHub.
-2. In the [Vercel Dashboard](https://vercel.com/new), import your `ksdigital` repository.
-3. Under **Environment Variables**, add:
-   - `DATABASE_URL`: Connection string from Neon Postgres or Supabase.
-   - `NEXTAUTH_SECRET`: Random 32+ character string.
-   - `ADMIN_EMAIL`: `sawantketan87@gmail.com`
-   - `ADMIN_PASSWORD`: Your chosen secure master password.
-   - `NEXT_PUBLIC_SITE_URL`: `https://ksdigital.co.in`
-   - `RESEND_API_KEY`: (Optional) Your Resend API key for instant lead email notifications.
-4. Click **Deploy**. Vercel will automatically build the Next.js App Router project and deploy it with edge capabilities.
+1. Provision a reachable MySQL database and make a backup if it already contains data.
+2. Push your repository to GitHub and import it in the [Vercel Dashboard](https://vercel.com/new).
+3. Add these **Environment Variables** in Vercel for Production (and Preview if needed):
+   - `DATABASE_URL`: The MySQL connection URL from your database provider.
+   - `NEXTAUTH_SECRET`: A unique random secret of at least 32 characters.
+   - `ADMIN_EMAIL` and `ADMIN_PASSWORD`: Credentials for the initial super admin. Use a unique, strong password.
+   - `ADMIN_NAME`: The name shown for the initial super admin.
+   - `NEXT_PUBLIC_SITE_URL`: Your canonical public URL, such as `https://ksdigital.co.in`.
+   - `RESEND_API_KEY`: Optional; needed for lead email notifications.
+4. Ensure the MySQL schema is created before using the app. For a new database, set `DATABASE_URL` locally to the production database and run `npx prisma db push`. Back up existing data and review any schema changes before running this against a database with data.
+5. Seed the initial admin and site content once by running `npm run db:seed` with the production `DATABASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_NAME` configured. Do not put database credentials in source control.
+6. Deploy from Vercel. The configured build command runs `prisma generate && next build`; deployment requires the Vercel environment variables above. If you change Vercel variables, redeploy to apply them.
 
 ---
 
@@ -86,26 +90,26 @@ Open **[http://localhost:3000/admin](http://localhost:3000/admin)** to access th
 
 The seed script (`prisma/seed.ts`) reads `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_NAME` from your environment to automatically register the initial `SUPER_ADMIN`. Passwords are encrypted using standard `bcrypt` hashing before storage.
 
-To re-seed or create a new admin on a remote database:
+To seed a remote database, configure the required environment variables locally and run:
 ```bash
-DATABASE_URL="your-remote-connection-string" npm run db:seed
+npm run db:seed
 ```
 
 ---
 
 ## 💾 Backing Up the Database
 
-### PostgreSQL (Neon / Supabase)
+### MySQL
 To take a complete snapshot of all CRM leads, team bios, pricing tiers, and site settings:
 
 ```bash
-# Using pg_dump
-pg_dump "postgresql://user:pass@host/db?sslmode=require" -F c -b -v -f "ksdigital-backup-$(date +%F).dump"
+# Replace HOST, USER, and DATABASE with values for your MySQL server.
+mysqldump --single-transaction --routines --triggers -h HOST -u USER -p DATABASE > ksdigital-backup.sql
 ```
 
 ### Restoring from Backup
 ```bash
-pg_restore -d "postgresql://user:pass@host/db?sslmode=require" -v "ksdigital-backup-YYYY-MM-DD.dump"
+mysql -h HOST -u USER -p DATABASE < ksdigital-backup.sql
 ```
 
 Additionally, leads can be exported on-demand directly from the browser at `/api/leads/export` (or via the **Export Leads CSV** button inside the Admin portal).
